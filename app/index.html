@@ -1,0 +1,242 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Boilerplate</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <header>
+      <div class="row center-xs">
+        <div class="col-xs-12 col-md-8">
+          <h1>Sass Flexbox Grid</h1>
+          <p>
+            A grid system based on the flex display property, edited and rewritten in Sass.
+          </p>
+          <p>
+            No Gutters, additional XL breakpoint, Sass variables and mixins.
+          </p>
+          <a href="https://github.com/drewbot/web-boilerplate">
+            <button>Github</button>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section id="responsive">
+      <div class="row center-xs description">
+        <div class="col-xs-12 col-md-8">
+          <h2>Responsive</h2>
+          <p>
+            Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths.
+          </p>
+        </div>
+      </div>
+
+      <div class="row example">
+        <div class="col-xs-12 col-sm-3 col-md-2 col-lg-1"></div>
+        <div class="col-xs-6 col-sm-6 col-md-8 col-lg-10"></div>
+        <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1"></div>
+        <div class="col-xs-12 col-sm-3 col-md-2 col-lg-1"></div>
+        <div class="col-xs-12 col-sm-9 col-md-10 col-lg-11"></div>
+        <div class="col-xs-10 col-sm-6 col-md-8 col-lg-10"></div>
+        <div class="col-xs-2 col-sm-6 col-md-4 col-lg-2"></div>
+      </div>
+    </section>
+
+    <section id="offsets">
+      <div class="row center-xs description">
+        <div class="col-xs-12 col-md-8">
+          <h2>Offsets</h2>
+          <p>
+            Offset a column
+          </p>
+        </div>
+      </div>
+      <div class="row example">
+        <div class="col-xs-offset-10 col-xs-2"></div>
+        <div class="col-xs-offset-8 col-xs-4"></div>
+        <div class="col-xs-offset-6 col-xs-6"></div>
+        <div class="col-xs-offset-4 col-xs-8"></div>
+        <div class="col-xs-offset-2 col-xs-10"></div>
+        <div class="col-xs-12"></div>
+      </div>
+    </section>
+
+    <section id="autoWidth">
+      <div class="row center-xs description">
+        <div class="col-xs-12 col-md-8">
+          <h2>Auto Width</h2>
+          <p>
+            Add any number of auto sizing columns to a row. Let the grid figure it out.
+          </p>
+        </div>
+      </div>
+      <div class="row example">
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+      </div>
+      <div class="row example">
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+      </div>
+    </section>
+
+    <section id="nested">
+      <div class="row center-xs description">
+        <div class="col-xs-12 col-md-8">
+          <h2>Nested Grids</h2>
+          <p>
+            Nest grids inside grids inside grids.
+          </p>
+        </div>
+      </div>
+      <div class="row example">
+        <div class="col-xs">
+            <div class="row">
+              <div class="col-xs"></div>
+              <div class="col-xs"></div>
+            </div>
+        </div>
+        <div class="col-xs">
+            <div class="row">
+              <div class="col-xs"></div>
+              <div class="col-xs"></div>
+              <div class="col-xs"></div>
+              <div class="col-xs"></div>
+            </div>
+        </div>
+        <div class="col-xs">
+            <div class="row">
+              <div class="col-xs"></div>
+              <div class="col-xs"></div>
+              <div class="col-xs"></div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="autoWidth">
+      <div class="row center-xs description">
+        <div class="col-xs-12 col-md-8">
+          <h2>Alignment</h2>
+          <p>
+            Add classes to align elements to the start or end of a row as well as the top, bottom, or center of a column
+          </p>
+        </div>
+      </div>
+      <div class="row start-xs example">
+        <div class="col-xs-6">
+          <h4>.start-</h4>
+        </div>
+      </div>
+      <div class="row center-xs example">
+        <div class="col-xs-6">
+          <h4>.center-</h4>
+        </div>
+      </div>
+      <div class="row end-xs example">
+        <div class="col-xs-6">
+          <h4>.end-</h4>
+        </div>
+      </div>
+      <div class="row center-xs end-sm start-lg example">
+          <div class="col-xs-8">
+            <h4>.center-xs, .end-sm, .start-lg</h4>
+          </div>
+      </div>
+      <div class="row example">
+        <div class="col-xs" style="height: 100px;">
+            <div class="row top-xs">
+              <div class="col-xs"><h4>.top-xs</h4></div>
+            </div>
+        </div>
+      </div>
+      <div class="row example">
+        <div class="col-xs" style="height: 100px;">
+            <div class="row middle-xs">
+              <div class="col-xs"><h4>.middle-xs</h4></div>
+            </div>
+        </div>
+      </div>
+      <div class="row example">
+        <div class="col-xs" style="height: 100px;">
+            <div class="row bottom-xs">
+              <div class="col-xs"><h4>.bottom-xs</h4></div>
+            </div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer id="footerSection">
+      <div class="row">
+        <ul>
+          <!-- copyright start (main.js reference) -->
+          <li>
+            <aside id="copyright"></aside>
+          </li>
+          <!-- copyright end -->
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/bundle.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

@@ -1,0 +1,119 @@
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: $graphik;
+}
+
+h1 {
+  font-family: $majesti;
+  @include font-size-line-height(5rem);
+  color: $white;
+  @media #{$breakpoint-md-up} {
+    @include font-size-line-height(6rem);
+  }
+  @media #{$breakpoint-lg-up} {
+    @include font-size-line-height(8rem);
+  }
+}
+
+h2 {
+  font-family: $majesti;
+  @include font-size-line-height(3.8rem);
+  color: $darkslate;
+  @media #{$breakpoint-md-up} {
+    @include font-size-line-height(4.2rem);
+  }
+  @media #{$breakpoint-lg-up} {
+    @include font-size-line-height(7.2rem);
+  }
+}
+
+h4 {
+  font-family: $graphik-medium;
+  @include font-size-line-height(1.8rem);
+  color: $bronze;
+  @media #{$breakpoint-lg-up} {
+    @include font-size-line-height(2rem);
+  }
+}
+
+p {
+  margin: 0 0 1.8rem 0;
+  font-family: $graphik;
+  @include font-size-line-height(1.8rem);
+  color: $darkslate;
+  @media #{$breakpoint-md-up} {
+    margin: 0 0 2rem 0;
+    @include font-size-line-height(2rem);
+  }
+  @media #{$breakpoint-lg-up} {
+    margin: 0 0 2.2rem 0;
+    @include font-size-line-height(2.2rem);
+  }
+}
+
+a {
+  color: $slate;
+  &:hover {
+    cursor: pointer;
+    color: lighten($slate, 20%);
+  }
+}
+
+li {
+  font-family: $graphik;
+  @include font-size-line-height(1.8rem);
+  color: $darkslate;
+  @media #{$breakpoint-md-up} {
+    @include font-size-line-height(2rem);
+  }
+  @media #{$breakpoint-lg-up} {
+    @include font-size-line-height(2.2rem);
+  }
+}
+
+aside, .secondary-text {
+  font-family: $graphik;
+  @include font-size-line-height(1.4rem);
+  color: $bronze;
+  @media #{$breakpoint-md-up} {
+    @include font-size-line-height(1.6rem);
+  }
+  @media #{$breakpoint-lg-up} {
+    @include font-size-line-height(1.8rem);
+  }
+}
+
+img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  padding: 9px 44px 9px 12px;
+  background-color: $bronze;
+  font-family: $graphik-medium;
+  text-align: center;
+  border: none;
+  @include font-size-line-height(1.8rem);
+  color: $white;
+  border-radius: 0;
+  transition: background-color 0.2s ease-in;
+  transition: border 0.2s ease-in;
+  @media #{$breakpoint-md-up} {
+    padding: 10px 54px 10px 54px;
+    @include font-size-line-height(2rem);
+  }
+  @media #{$breakpoint-lg-up} {
+    padding: 14px 60px 14px 60px;
+    @include font-size-line-height(2.2rem);
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: lighten($bronze, 10%);
+  }
+}
