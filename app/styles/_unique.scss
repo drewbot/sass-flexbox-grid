@@ -137,7 +137,11 @@ section {
 .example > div > div {
   height: 100%;
   & > div {
-    height: 2.4rem;
+    padding-left: 1rem;
+    height: 3rem;
+    h4 {
+      line-height: 3rem;  
+    }
   }
 }
 

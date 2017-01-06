@@ -33,12 +33,12 @@ $charcoal: #585B56;
 
 $coral-lt: lighten($coral, 10%);
 $burgandy-lt: lighten($burgandy, 10%);
-$gold-lt: #937D64;
+$gold-lt: lighten($gold, 10%);
 $slateblue-lt: lighten($slateblue, 10%);
 $charcoal-lt: lighten($charcoal, 10%);
 
 $block-colors: ($coral, $burgandy, $gold, $slateblue, $charcoal);
-$block-colors-lt: ($coral-lt, $burgandy-lt, $gold-lt, $slateblue-lt, $charcoal-lt);
+$block-colors-lt: ($burgandy-lt, $slateblue-lt, $gold-lt, $charcoal-lt, $coral-lt, $burgandy-lt);
 
 // fonts
 $majesti: "majesti-banner-book", serif;
