@@ -7,7 +7,7 @@ $grid-columns: 12;
 $content-well-max-width: 144rem;
 
 // breakpoints
-$breakpoint-xs-only: "only screen and (max-width: 641px)"; // xs-only
+$breakpoint-xs-only: "only screen and (max-width: 640px)"; // xs-only
 $breakpoint-sm-up: "only screen and (min-width: 641px)";
 $breakpoint-sm-only: "only screen and (min-width: 641px) and (max-width: 1024px)"; // s-only
 $breakpoint-md-up: "only screen and (min-width: 1025px)";
