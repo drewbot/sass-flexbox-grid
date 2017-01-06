@@ -111,19 +111,6 @@ section {
   }
 }
 
-.description {
-  padding-bottom: 1.6rem;
-  @media #{$breakpoint-sm-up} {
-    padding-bottom: 1.8rem;
-  }
-  @media #{$breakpoint-md-up} {
-    padding-bottom: 2rem;
-  }
-  @media #{$breakpoint-lg-up} {
-    padding-bottom: 2.2rem;
-  }
-}
-
 .example {
   padding: 0 3.2rem;
   @media #{$breakpoint-sm-up} {
@@ -138,7 +125,7 @@ section {
 }
 
 .example > div {
-  height: 40px;
+  min-height: 40px;
   margin-bottom: 1.8rem;
   padding: 0.8rem 1.6rem;
 
@@ -147,8 +134,11 @@ section {
   }
 }
 
-.example > div > div > div {
-  height: 2.4rem;
+.example > div > div {
+  height: 100%;
+  & > div {
+    height: 2.4rem;
+  }
 }
 
 @for $i from 1 through 5 {
@@ -160,5 +150,26 @@ section {
 @for $i from 1 through 5 {
   .example > div > div > div:nth-of-type(5n + #{$i}) {
     background-color: nth($block-colors-lt, $i);
+  }
+}
+
+.code-block {
+  margin-bottom: 3.2rem;
+  padding: 1.6rem;
+  background-color: $lightslate;
+  @media #{$breakpoint-sm-up} {
+    margin-bottom: 3.6rem;
+    padding: 1.8rem;
+  }
+  @media #{$breakpoint-md-up} {
+    margin-bottom: 4rem;
+    padding: 2rem;
+  }
+  @media #{$breakpoint-lg-up} {
+    margin-bottom: 4.4rem;
+    padding: 2.2rem;
+  }
+  p {
+    margin: 0;
   }
 }

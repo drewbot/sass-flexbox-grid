@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "jquery": "~2.1.1",
-    "modernizr": "~2.8.1"
+    "modernizr": "~2.8.1",
+    "marked": "^0.3.6"
   },
   "devDependencies": {
     "chai": "^3.5.0",
