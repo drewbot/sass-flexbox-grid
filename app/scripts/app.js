@@ -20,5 +20,7 @@ $(function() {
   $('#nestedExample').html(marked(examplesObj.nestedExample));
   $('#alignmentExample').html(marked(examplesObj.alignmentExample));
   $('#distributionExample').html(marked(examplesObj.distributionExample));
+  $('#reorderExample').html(marked(examplesObj.reorderExample));
+  $('#reverseExample').html(marked(examplesObj.reverseExample));
 
 });

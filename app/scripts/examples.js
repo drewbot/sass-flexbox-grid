@@ -42,6 +42,21 @@ var examplesObj = {
   ${indent}<div class="col-xs-2"></div>
   ${indent}<div class="col-xs-2"></div>
   </div>
+  `,
+  reorderExample: `
+  <div class="row">
+  ${indent}<div class="col-xs-2">1</div>
+  ${indent}<div class="col-xs-2">2</div>
+  ${indent}<div class="col-xs-2 first-xs">3</div>
+  ${indent}...
+  </div>
+  `,
+  reverseExample: `
+  <div class="row reverse">
+  ${indent}<div class="col-xs">1</div>
+  ${indent}<div class="col-xs">2</div>
+  ${indent}<div class="col-xs">3</div>
+  </div>
   `
 }
 
