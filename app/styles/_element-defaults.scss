@@ -9,25 +9,25 @@ body {
 
 h1 {
   font-family: $majesti;
-  @include font-size-line-height(5rem);
+  @include font-size-line-height(4rem);
   color: $white;
   @media #{$breakpoint-md-up} {
-    @include font-size-line-height(6rem);
+    @include font-size-line-height(5rem);
   }
   @media #{$breakpoint-lg-up} {
-    @include font-size-line-height(8rem);
+    @include font-size-line-height(7rem);
   }
 }
 
 h2 {
   font-family: $majesti;
-  @include font-size-line-height(3.8rem);
+  @include font-size-line-height(3.6rem);
   color: $darkslate;
   @media #{$breakpoint-md-up} {
-    @include font-size-line-height(4.2rem);
+    @include font-size-line-height(4rem);
   }
   @media #{$breakpoint-lg-up} {
-    @include font-size-line-height(7.2rem);
+    @include font-size-line-height(6.6rem);
   }
 }
 
@@ -56,10 +56,10 @@ p {
 }
 
 a {
-  color: $slate;
+  color: lighten($bronze, 10%);;
   &:hover {
     cursor: pointer;
-    color: lighten($slate, 20%);
+    color: lighten($bronze, 20%);
   }
 }
 
@@ -94,7 +94,7 @@ img {
 }
 
 button {
-  padding: 9px 44px 9px 12px;
+  padding: 9px 24px 9px 24px;
   background-color: $bronze;
   font-family: $graphik-medium;
   text-align: center;
@@ -104,6 +104,9 @@ button {
   border-radius: 0;
   transition: background-color 0.2s ease-in;
   transition: border 0.2s ease-in;
+  @media #{$breakpoint-sm-up} {
+    padding: 10px 30px 10px 30px;
+  }
   @media #{$breakpoint-md-up} {
     padding: 10px 54px 10px 54px;
     @include font-size-line-height(2rem);

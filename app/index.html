@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Web Boilerplate</title>
+    <title>Sass Flexbox Grid</title>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -44,24 +44,47 @@
     <![endif]-->
 
     <header>
-      <div class="row center-xs">
+      <div class="row center-xs content-block">
         <div class="col-xs-12 col-md-8">
           <h1>Sass Flexbox Grid</h1>
           <p>
-            A grid system based on the flex display property, edited and rewritten in Sass.
+            A responsive grid system based on <a href="http://flexboxgrid.com/">Flexbox&nbsp;Grid</a> and the flex property, re-written in Sass, edited and expanded upon.
           </p>
-          <p>
-            No Gutters, additional XL breakpoint, Sass variables and mixins.
-          </p>
-          <a href="https://github.com/drewbot/web-boilerplate">
-            <button>Github</button>
-          </a>
+          <ul class="features-list">
+            <li>Sass&nbsp;variables,</li>
+            <li>Visibility&nbsp;classes,</li>
+            <li>Additional&nbsp;'XL'&nbsp;breakpoint,</li>
+            <li>Customize&nbsp;the&nbsp;number&nbsp;of&nbsp;grid&nbsp;columns,</li>
+            <li>No&nbsp;gutters</li>
+          </ul>
+        </div>
+        <div class="col-xs-10 col-sm-6">
+          <div class="row">
+            <div class="col-xs-6">
+              <row class="row start-xs">
+                <div>
+                  <a href="#">
+                    <button>Download</button>
+                  </a>
+                </div>
+              </row>
+            </div>
+            <div class="col-xs-6">
+              <row class="row end-xs">
+                <div>
+                  <a href="https://github.com/drewbot/sass-flexbox-grid">
+                    <button>Github</button>
+                  </a>
+                </div>
+              </row>
+            </div>
+          </div>
         </div>
       </div>
     </header>
 
     <section id="responsive">
-      <div class="row center-xs description">
+      <div class="row center-xs description content-block">
         <div class="col-xs-12 col-md-8">
           <h2>Responsive</h2>
           <p>
@@ -82,7 +105,7 @@
     </section>
 
     <section id="offsets">
-      <div class="row center-xs description">
+      <div class="row center-xs description content-block">
         <div class="col-xs-12 col-md-8">
           <h2>Offsets</h2>
           <p>
@@ -101,7 +124,7 @@
     </section>
 
     <section id="autoWidth">
-      <div class="row center-xs description">
+      <div class="row center-xs description content-block">
         <div class="col-xs-12 col-md-8">
           <h2>Auto Width</h2>
           <p>
@@ -121,7 +144,7 @@
     </section>
 
     <section id="nested">
-      <div class="row center-xs description">
+      <div class="row center-xs description content-block">
         <div class="col-xs-12 col-md-8">
           <h2>Nested Grids</h2>
           <p>
@@ -155,7 +178,7 @@
     </section>
 
     <section id="autoWidth">
-      <div class="row center-xs description">
+      <div class="row center-xs description content-block">
         <div class="col-xs-12 col-md-8">
           <h2>Alignment</h2>
           <p>
@@ -208,7 +231,7 @@
     </section>
 
     <footer id="footerSection">
-      <div class="row">
+      <div class="row content-block">
         <ul>
           <!-- copyright start (main.js reference) -->
           <li>
