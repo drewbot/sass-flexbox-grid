@@ -17,11 +17,13 @@
 }
 
 @mixin col-condition($col-number) {
-  @if $col-number != 0 {
+  @if type-of($col-number) != number {
+    @warn "Column number must be a number (second arg in the col mixin)";
+  } @else if $col-number > $grid-columns {
+    @warn "Column number must be less than or equal to total number of columns in grid (#{$grid-columns})";
+  } @else if $col-number != 0 {
     flex-basis: 100% / $grid-columns * $col-number;
     max-width: 100% / $grid-columns * $col-number;
-  } @else if $col-number > $grid-columns {
-    @warn "Column number must be less than or equal to total number of columns in grid";
   } @else {
     flex-grow: 1;
     flex-basis: 0;
@@ -52,6 +54,8 @@
     @media #{$breakpoint-xl-up} {
       @include col-condition($col-number);
     }
+  } @else {
+    @warn "col mixin requires one of the existing breakpoint prefixes (xs, sm, md, lg, xl)";
   }
 }
 
