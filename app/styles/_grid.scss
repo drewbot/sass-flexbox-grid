@@ -15,14 +15,48 @@
 }
 
 .col-xs {
-  @include col-xs();
+  @include col();
 }
 
 @for $i from 1 through $grid-columns {
   .col-xs-#{$i} {
-    @include col-xs($i);
+    @include col($i);
   }
 }
+
+@for $b from 1 through length($breakpoint-ups) {
+  $thisBreak: nth($breakpoint-ups, $b);
+  $thisPrefix: nth($breakpoint-ups-pre, $b);
+  @for $i from 1 through $grid-columns {
+    .col-#{$thisPrefix}-#{$i} {
+      @include col($thisPrefix, $i);
+    }
+  }
+}
+
+// @for $i from 1 through $grid-columns {
+//   .col-sm-#{$i} {
+//     @include col(sm, $i);
+//   }
+// }
+//
+// @for $i from 1 through $grid-columns {
+//   .col-md-#{$i} {
+//     @include col(md, $i);
+//   }
+// }
+//
+// @for $i from 1 through $grid-columns {
+//   .col-lg-#{$i} {
+//     @include col(lg, $i);
+//   }
+// }
+//
+// @for $i from 1 through $grid-columns {
+//   .col-xl-#{$i} {
+//     @include col(xl, $i);
+//   }
+// }
 
 @for $i from 1 through $grid-columns {
   .col-xs-offset-#{$i} {
@@ -76,13 +110,6 @@
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
-  }
-
-  @for $i from 1 through $grid-columns {
-    .col-sm-#{$i} {
-      flex-basis: 100% / $grid-columns * $i;
-      max-width: 100% / $grid-columns * $i;
-    }
   }
 
   @for $i from 1 through $grid-columns {
@@ -141,13 +168,6 @@
   }
 
   @for $i from 1 through $grid-columns {
-    .col-md-#{$i} {
-      flex-basis: 100% / $grid-columns * $i;
-      max-width: 100% / $grid-columns * $i;
-    }
-  }
-
-  @for $i from 1 through $grid-columns {
     .col-md-offset-#{$i} {
       margin-left: 100% / $grid-columns * $i;
     }
@@ -203,13 +223,6 @@
   }
 
   @for $i from 1 through $grid-columns {
-    .col-lg-#{$i} {
-      flex-basis: 100% / $grid-columns * $i;
-      max-width: 100% / $grid-columns * $i;
-    }
-  }
-
-  @for $i from 1 through $grid-columns {
     .col-lg-offset-#{$i} {
       margin-left: 100% / $grid-columns * $i;
     }
@@ -262,13 +275,6 @@
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
-  }
-
-  @for $i from 1 through $grid-columns {
-    .col-xl-#{$i} {
-      flex-basis: 100% / $grid-columns * $i;
-      max-width: 100% / $grid-columns * $i;
-    }
   }
 
   @for $i from 1 through $grid-columns {

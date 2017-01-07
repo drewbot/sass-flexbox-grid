@@ -16,7 +16,7 @@
   flex-direction: column-reverse;
 }
 
-@mixin col-xs($col-number: 0) {
+@mixin col-condition($col-number) {
   @if $col-number != 0 {
     flex-basis: 100% / $grid-columns * $col-number;
     max-width: 100% / $grid-columns * $col-number;
@@ -29,6 +29,32 @@
   }
 }
 
+@mixin col($breakpoint: "xs", $col-number: 0) {
+  // If no breakpoint is passed and a col number is just use the first arg as the col number and act like xs
+  @if type-of($breakpoint) == number {
+    $col-number: $breakpoint;
+    @include col-condition($col-number);
+  } @else if $breakpoint == "xs" {
+    @include col-condition($col-number);
+  } @else if $breakpoint == "sm" {
+    @media #{$breakpoint-sm-up} {
+      @include col-condition($col-number);
+    }
+  } @else if $breakpoint == "md" {
+    @media #{$breakpoint-md-up} {
+      @include col-condition($col-number);
+    }
+  } @else if $breakpoint == "lg" {
+    @media #{$breakpoint-lg-up} {
+      @include col-condition($col-number);
+    }
+  } @else if $breakpoint == "xl" {
+    @media #{$breakpoint-xl-up} {
+      @include col-condition($col-number);
+    }
+  }
+}
+
 @mixin col-xs-offset($offset-number: 0) {
   @if $offset-number > 0 and $offset-number < ($grid-columns + 1) {
     margin-left: 100% / $grid-columns * $offset-number;
@@ -37,7 +63,7 @@
   }
 }
 
-//////////////
+////////////
 
 // .row {
 //   @include row();
