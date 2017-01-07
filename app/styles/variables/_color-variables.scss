@@ -1,0 +1,23 @@
+// Colors
+$white: #ffffff;
+$black: #000000;
+$slate: #7B7B7B;
+$darkslate: #303030;
+$lightslate: #F5F5F5;
+$bronze: #88714D;
+$lightbronze: lighten($bronze, 52%);
+
+$coral: #EA526F;
+$burgandy: #63474D;
+$gold: #FFC972;
+$slateblue: #7C9EB2;
+$charcoal: #585B56;
+
+$coral-lt: lighten($coral, 10%);
+$burgandy-lt: lighten($burgandy, 10%);
+$gold-lt: #937D64;
+$slateblue-lt: lighten($slateblue, 10%);
+$charcoal-lt: lighten($charcoal, 10%);
+
+$block-colors: ($coral, $burgandy, $gold, $slateblue, $charcoal);
+$block-colors-lt: ($coral-lt, $burgandy-lt, $gold-lt, $slateblue-lt, $charcoal-lt);

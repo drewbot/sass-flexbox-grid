@@ -1,0 +1,13 @@
+// Grid
+$grid-columns: 12;
+$content-well-max-width: 144rem;
+
+// breakpoints
+$breakpoint-xs-only: "only screen and (max-width: 640px)"; // xs-only
+$breakpoint-sm-up: "only screen and (min-width: 641px)";
+$breakpoint-sm-only: "only screen and (min-width: 641px) and (max-width: 1024px)"; // s-only
+$breakpoint-md-up: "only screen and (min-width: 1025px)";
+$breakpoint-md-only: "only screen and (min-width: 1025px) and (max-width: 1440px)"; // m-only
+$breakpoint-lg-up: "only screen and (min-width: 1441px)";
+$breakpoint-lg-only: "only screen and (min-width: 1441px) and (max-width: 1920px)"; // l-only
+$breakpoint-xl-up: "only screen and (min-width: 1921px)";

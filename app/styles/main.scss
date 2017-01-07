@@ -1,13 +1,13 @@
 // bower:scss
 // endbower
 
+@import "vendor/main.scss";
 @import "reset";
 @import "border-box-all";
-@import "variables";
-@import "mixins";
+@import "fonts";
+@import "variables/main.scss";
+@import "mixins/main.scss";
 @import "visibility";
 @import "grid";
-@import "fonts";
 @import "element-defaults";
-@import "sections";
 @import "unique";

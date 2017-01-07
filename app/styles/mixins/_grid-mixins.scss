@@ -1,8 +1,4 @@
-// Creds to https://github.com/kristoferjoseph/flexboxgrid
-// No gutters
-// No text alignment with justified container classes (center-xs, for example)
-
-.row {
+@mixin row() {
   margin: 0 auto;
   width: 100%;
   max-width: $content-well-max-width;
@@ -12,12 +8,39 @@
   flex-wrap: wrap;
 }
 
-.row.reverse {
+@mixin row-reverse() {
   flex-direction: row-reverse;
 }
 
-.col.reverse {
+@mixin col-reverse() {
   flex-direction: column-reverse;
+}
+
+@mixin col-xs($col-number: 0) {
+  @if $col-number != 0 {
+    flex-basis: 100% / $grid-columns * $col-number;
+    max-width: 100% / $grid-columns * $col-number;
+  } @else if $col-number > $grid-columns {
+    @warn "Column number must be less than or equal to total number of columns in grid";
+  } @else {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+  }
+}
+
+//////////////
+
+.row {
+  @include row();
+}
+
+.row.reverse {
+  @include row-reverse();
+}
+
+.col.reverse {
+  @include col-reverse();
 }
 
 .col-xs {

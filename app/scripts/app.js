@@ -4,10 +4,6 @@ import examplesObj from './examples.js';
 
 setMarkedOptions();
 
-// marked.setOptions({
-//   sanitize: true
-// });
-
 $(function() {
   console.log(`Hello ${mainObj.owner}`);
   console.log(mainObj.isTouchDevice() ? 'Touch Device': 'Desktop');
