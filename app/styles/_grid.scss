@@ -3,21 +3,15 @@
 // No text alignment with justified container classes (center-xs, for example)
 
 .row {
-  margin: 0 auto;
-  width: 100%;
-  max-width: $content-well-max-width;
-  display: flex;
-  flex: 0 1 auto;
-  flex-direction: row;
-  flex-wrap: wrap;
+  @include row();
 }
 
 .row.reverse {
-  flex-direction: row-reverse;
+  @include row-reverse();
 }
 
 .col.reverse {
-  flex-direction: column-reverse;
+  @include col-reverse();
 }
 
 .col-xs {
@@ -32,7 +26,7 @@
 
 @for $i from 1 through $grid-columns {
   .col-xs-offset-#{$i} {
-    margin-left: 100% / $grid-columns * $i;
+    @include col-xs-offset($i);
   }
 }
 
