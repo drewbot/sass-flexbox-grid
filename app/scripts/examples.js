@@ -57,6 +57,28 @@ var examplesObj = {
   ${indent}<div class="col-xs">2</div>
   ${indent}<div class="col-xs">3</div>
   </div>
+  `,
+  variablesExample: `
+  $grid-columns: 12;
+
+  $xs-max: 640px;
+  $sm-max: 1024px;
+  $md-max: 1440px;
+  $lg-max: 1920px;
+
+  $content-well-max-width: 2400px;
+  `,
+  mixinsExample: `
+  .container {
+  ${indent}@include row();
+  ${indent}.box {
+  ${indentDouble}@inlcude col(6);
+  ${indentDouble}@inlcude col(md, 3);
+  ${indent}}
+  ${indent}.extras {
+  ${indentDouble}@include hide(lg);
+  ${indent}}
+  }
   `
 }
 

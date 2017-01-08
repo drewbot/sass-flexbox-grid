@@ -18,5 +18,7 @@ $(function() {
   $('#distributionExample').html(marked(examplesObj.distributionExample));
   $('#reorderExample').html(marked(examplesObj.reorderExample));
   $('#reverseExample').html(marked(examplesObj.reverseExample));
+  $('#variablesExample').html(marked(examplesObj.variablesExample));
+  $('#mixinsExample').html(marked(examplesObj.mixinsExample));
 
 });
