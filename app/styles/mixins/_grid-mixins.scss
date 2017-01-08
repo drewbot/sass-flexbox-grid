@@ -31,6 +31,36 @@
       margin-left: 100% / $grid-columns * $i;
     }
   }
+  .start-#{$thisPrefix} {
+    justify-content: flex-start;
+  }
+  .center-#{$thisPrefix} {
+    justify-content: center;
+  }
+  .end-#{$thisPrefix} {
+    justify-content: flex-end;
+  }
+  .top-#{$thisPrefix} {
+    align-items: flex-start;
+  }
+  .middle-#{$thisPrefix} {
+    align-items: center;
+  }
+  .bottom-#{$thisPrefix} {
+    align-items: flex-end;
+  }
+  .around-#{$thisPrefix} {
+    justify-content: space-around;
+  }
+  .between-#{$thisPrefix} {
+    justify-content: space-between;
+  }
+  .first-#{$thisPrefix} {
+    order: -1;
+  }
+  .last-#{$thisPrefix} {
+    order: 1;
+  }
 }
 
 @mixin col-condition($col-number) {
