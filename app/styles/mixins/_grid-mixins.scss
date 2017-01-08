@@ -16,6 +16,23 @@
   flex-direction: column-reverse;
 }
 
+@mixin col-factory($thisPrefix) {
+  .col-#{$thisPrefix} {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+  }
+  @for $i from 1 through $grid-columns {
+    .col-#{$thisPrefix}-#{$i} {
+      flex-basis: 100% / $grid-columns * $i;
+      max-width: 100% / $grid-columns * $i;
+    }
+    .col-#{$thisPrefix}-offset-#{$i} {
+      margin-left: 100% / $grid-columns * $i;
+    }
+  }
+}
+
 @mixin col-condition($col-number) {
   @if type-of($col-number) != number {
     @warn "Column number must be a number (second arg in the col mixin)";
@@ -59,328 +76,42 @@
   }
 }
 
-@mixin col-xs-offset($offset-number: 0) {
-  @if $offset-number > 0 and $offset-number < ($grid-columns + 1) {
-    margin-left: 100% / $grid-columns * $offset-number;
+@mixin col-offset-condition($offset-number) {
+  @if type-of($offset-number) != number {
+    @warn "Column offset number must be a number (second arg in the col mixin)";
+  } @else if $offset-number == 0 {
+    @warn "Column offset number must be greater than 0 and less than or equal to total number of columns in the grid (#{$grid-columns})";
+  } @else if $offset-number > $grid-columns {
+    @warn "Column offset number must be greater than 0 and less than or equal to total number of columns in the grid (#{$grid-columns})";
   } @else {
-    @warn "Column offset number must be greater than 0 and less than or equal to the total number of columns in the grid";
+    margin-left: 100% / $grid-columns * $offset-number;
   }
 }
 
-////////////
-
-// .row {
-//   @include row();
-// }
-//
-// .row.reverse {
-//   @include row-reverse();
-// }
-//
-// .col.reverse {
-//   @include col-reverse();
-// }
-//
-// .col-xs {
-//   @include col-xs();
-// }
-//
-// @for $i from 1 through $grid-columns {
-//   .col-xs-#{$i} {
-//     @include col-xs($i);
-//   }
-// }
-//
-// @for $i from 1 through $grid-columns {
-//   .col-xs-offset-#{$i} {
-//     @include col-xs-offset($i);
-//   }
-// }
-//
-// .start-xs {
-//   justify-content: flex-start;
-// }
-//
-// .center-xs {
-//   justify-content: center;
-// }
-//
-// .end-xs {
-//   justify-content: flex-end;
-// }
-//
-// .top-xs {
-//   align-items: flex-start;
-// }
-//
-// .middle-xs {
-//   align-items: center;
-// }
-//
-// .bottom-xs {
-//   align-items: flex-end;
-// }
-//
-// .around-xs {
-//   justify-content: space-around;
-// }
-//
-// .between-xs {
-//   justify-content: space-between;
-// }
-//
-// .first-xs {
-//   order: -1;
-// }
-//
-// .last-xs {
-//   order: 1;
-// }
-//
-// @media #{$breakpoint-sm-up} {
-//
-//   .col-sm {
-//     flex-grow: 1;
-//     flex-basis: 0;
-//     max-width: 100%;
-//   }
-//
-//   @for $i from 1 through $grid-columns {
-//     .col-sm-#{$i} {
-//       flex-basis: 100% / $grid-columns * $i;
-//       max-width: 100% / $grid-columns * $i;
-//     }
-//   }
-//
-//   @for $i from 1 through $grid-columns {
-//     .col-sm-offset-#{$i} {
-//       margin-left: 100% / $grid-columns * $i;
-//     }
-//   }
-//
-//   .start-sm {
-//     justify-content: flex-start;
-//   }
-//
-//   .center-sm {
-//     justify-content: center;
-//   }
-//
-//   .end-sm {
-//     justify-content: flex-end;
-//   }
-//
-//   .top-sm {
-//     align-items: flex-start;
-//   }
-//
-//   .middle-sm {
-//     align-items: center;
-//   }
-//
-//   .bottom-sm {
-//     align-items: flex-end;
-//   }
-//
-//   .around-sm {
-//     justify-content: space-around;
-//   }
-//
-//   .between-sm {
-//     justify-content: space-between;
-//   }
-//
-//   .first-sm {
-//     order: -1;
-//   }
-//
-//   .last-sm {
-//     order: 1;
-//   }
-// }
-//
-// @media #{$breakpoint-md-up} {
-//
-//   .col-md {
-//     flex-grow: 1;
-//     flex-basis: 0;
-//     max-width: 100%;
-//   }
-//
-//   @for $i from 1 through $grid-columns {
-//     .col-md-#{$i} {
-//       flex-basis: 100% / $grid-columns * $i;
-//       max-width: 100% / $grid-columns * $i;
-//     }
-//   }
-//
-//   @for $i from 1 through $grid-columns {
-//     .col-md-offset-#{$i} {
-//       margin-left: 100% / $grid-columns * $i;
-//     }
-//   }
-//
-//   .start-md {
-//     justify-content: flex-start;
-//   }
-//
-//   .center-md {
-//     justify-content: center;
-//   }
-//
-//   .end-md {
-//     justify-content: flex-end;
-//   }
-//
-//   .top-md {
-//     align-items: flex-start;
-//   }
-//
-//   .middle-md {
-//     align-items: center;
-//   }
-//
-//   .bottom-md {
-//     align-items: flex-end;
-//   }
-//
-//   .around-md {
-//     justify-content: space-around;
-//   }
-//
-//   .between-md {
-//     justify-content: space-between;
-//   }
-//
-//   .first-md {
-//     order: -1;
-//   }
-//
-//   .last-md {
-//     order: 1;
-//   }
-// }
-//
-// @media #{$breakpoint-lg-up} {
-//
-//   .col-lg {
-//     flex-grow: 1;
-//     flex-basis: 0;
-//     max-width: 100%;
-//   }
-//
-//   @for $i from 1 through $grid-columns {
-//     .col-lg-#{$i} {
-//       flex-basis: 100% / $grid-columns * $i;
-//       max-width: 100% / $grid-columns * $i;
-//     }
-//   }
-//
-//   @for $i from 1 through $grid-columns {
-//     .col-lg-offset-#{$i} {
-//       margin-left: 100% / $grid-columns * $i;
-//     }
-//   }
-//
-//   .start-lg {
-//     justify-content: flex-start;
-//   }
-//
-//   .center-lg {
-//     justify-content: center;
-//   }
-//
-//   .end-lg {
-//     justify-content: flex-end;
-//   }
-//
-//   .top-lg {
-//     align-items: flex-start;
-//   }
-//
-//   .middle-lg {
-//     align-items: center;
-//   }
-//
-//   .bottom-lg {
-//     align-items: flex-end;
-//   }
-//
-//   .around-lg {
-//     justify-content: space-around;
-//   }
-//
-//   .between-lg {
-//     justify-content: space-between;
-//   }
-//
-//   .first-lg {
-//     order: -1;
-//   }
-//
-//   .last-lg {
-//     order: 1;
-//   }
-// }
-//
-// @media #{$breakpoint-xl-up} {
-//
-//   .col-xl {
-//     flex-grow: 1;
-//     flex-basis: 0;
-//     max-width: 100%;
-//   }
-//
-//   @for $i from 1 through $grid-columns {
-//     .col-xl-#{$i} {
-//       flex-basis: 100% / $grid-columns * $i;
-//       max-width: 100% / $grid-columns * $i;
-//     }
-//   }
-//
-//   @for $i from 1 through $grid-columns {
-//     .col-xl-offset-#{$i} {
-//       margin-left: 100% / $grid-columns * $i;
-//     }
-//   }
-//
-//   .start-xl {
-//     justify-content: flex-start;
-//   }
-//
-//   .center-xl {
-//     justify-content: center;
-//   }
-//
-//   .end-xl {
-//     justify-content: flex-end;
-//   }
-//
-//   .top-xl {
-//     align-items: flex-start;
-//   }
-//
-//   .middle-xl {
-//     align-items: center;
-//   }
-//
-//   .bottom-xl {
-//     align-items: flex-end;
-//   }
-//
-//   .around-xl {
-//     justify-content: space-around;
-//   }
-//
-//   .between-xl {
-//     justify-content: space-between;
-//   }
-//
-//   .first-xl {
-//     order: -1;
-//   }
-//
-//   .last-xl {
-//     order: 1;
-//   }
-// }
+@mixin col-offset($breakpoint: "xs", $offset-number: 0) {
+  // If no breakpoint is passed and a col number is just use the first arg as the col number and act like xs
+  @if type-of($breakpoint) == number {
+    $offset-number: $breakpoint;
+    @include col-offset-condition($offset-number);
+  } @else if $breakpoint == "xs" {
+    @include col-offset-condition($offset-number);
+  } @else if $breakpoint == "sm" {
+    @media #{$breakpoint-sm-up} {
+      @include col-offset-condition($offset-number);
+    }
+  } @else if $breakpoint == "md" {
+    @media #{$breakpoint-md-up} {
+      @include col-offset-condition($offset-number);
+    }
+  } @else if $breakpoint == "lg" {
+    @media #{$breakpoint-lg-up} {
+      @include col-offset-condition($offset-number);
+    }
+  } @else if $breakpoint == "xl" {
+    @media #{$breakpoint-xl-up} {
+      @include col-offset-condition($offset-number);
+    }
+  } @else {
+    @warn "col mixin requires one of the existing breakpoint prefixes (xs, sm, md, lg, xl)";
+  }
+}

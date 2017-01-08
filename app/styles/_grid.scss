@@ -14,53 +14,26 @@
   @include col-reverse();
 }
 
-.col-xs {
-  @include col();
-}
-
-@for $i from 1 through $grid-columns {
-  .col-xs-#{$i} {
-    @include col($i);
-  }
-}
-
-@for $b from 1 through length($breakpoint-ups) {
-  $thisBreak: nth($breakpoint-ups, $b);
-  $thisPrefix: nth($breakpoint-ups-pre, $b);
-  @for $i from 1 through $grid-columns {
-    .col-#{$thisPrefix}-#{$i} {
-      @include col($thisPrefix, $i);
+@for $i from 1 through length($breakpoint-prefixes) {
+  $thisPrefix: nth($breakpoint-prefixes, $i);
+  @if $thisPrefix == "xs" {
+    @include col-factory($thisPrefix);
+  } @else if $thisPrefix == "sm" {
+    @media #{$breakpoint-sm-up} {
+      @include col-factory($thisPrefix);
     }
-  }
-}
-
-// @for $i from 1 through $grid-columns {
-//   .col-sm-#{$i} {
-//     @include col(sm, $i);
-//   }
-// }
-//
-// @for $i from 1 through $grid-columns {
-//   .col-md-#{$i} {
-//     @include col(md, $i);
-//   }
-// }
-//
-// @for $i from 1 through $grid-columns {
-//   .col-lg-#{$i} {
-//     @include col(lg, $i);
-//   }
-// }
-//
-// @for $i from 1 through $grid-columns {
-//   .col-xl-#{$i} {
-//     @include col(xl, $i);
-//   }
-// }
-
-@for $i from 1 through $grid-columns {
-  .col-xs-offset-#{$i} {
-    @include col-xs-offset($i);
+  } @else if $thisPrefix == "md" {
+    @media #{$breakpoint-md-up} {
+      @include col-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "lg" {
+    @media #{$breakpoint-lg-up} {
+      @include col-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "xl" {
+    @media #{$breakpoint-xl-up} {
+      @include col-factory($thisPrefix);
+    }
   }
 }
 
@@ -106,17 +79,17 @@
 
 @media #{$breakpoint-sm-up} {
 
-  .col-sm {
-    flex-grow: 1;
-    flex-basis: 0;
-    max-width: 100%;
-  }
+  // .col-sm {
+  //   flex-grow: 1;
+  //   flex-basis: 0;
+  //   max-width: 100%;
+  // }
 
-  @for $i from 1 through $grid-columns {
-    .col-sm-offset-#{$i} {
-      margin-left: 100% / $grid-columns * $i;
-    }
-  }
+  // @for $i from 1 through $grid-columns {
+  //   .col-sm-offset-#{$i} {
+  //     margin-left: 100% / $grid-columns * $i;
+  //   }
+  // }
 
   .start-sm {
     justify-content: flex-start;
@@ -161,17 +134,17 @@
 
 @media #{$breakpoint-md-up} {
 
-  .col-md {
-    flex-grow: 1;
-    flex-basis: 0;
-    max-width: 100%;
-  }
+  // .col-md {
+  //   flex-grow: 1;
+  //   flex-basis: 0;
+  //   max-width: 100%;
+  // }
 
-  @for $i from 1 through $grid-columns {
-    .col-md-offset-#{$i} {
-      margin-left: 100% / $grid-columns * $i;
-    }
-  }
+  // @for $i from 1 through $grid-columns {
+  //   .col-md-offset-#{$i} {
+  //     margin-left: 100% / $grid-columns * $i;
+  //   }
+  // }
 
   .start-md {
     justify-content: flex-start;
@@ -216,17 +189,17 @@
 
 @media #{$breakpoint-lg-up} {
 
-  .col-lg {
-    flex-grow: 1;
-    flex-basis: 0;
-    max-width: 100%;
-  }
+  // .col-lg {
+  //   flex-grow: 1;
+  //   flex-basis: 0;
+  //   max-width: 100%;
+  // }
 
-  @for $i from 1 through $grid-columns {
-    .col-lg-offset-#{$i} {
-      margin-left: 100% / $grid-columns * $i;
-    }
-  }
+  // @for $i from 1 through $grid-columns {
+  //   .col-lg-offset-#{$i} {
+  //     margin-left: 100% / $grid-columns * $i;
+  //   }
+  // }
 
   .start-lg {
     justify-content: flex-start;
@@ -271,17 +244,17 @@
 
 @media #{$breakpoint-xl-up} {
 
-  .col-xl {
-    flex-grow: 1;
-    flex-basis: 0;
-    max-width: 100%;
-  }
+  // .col-xl {
+  //   flex-grow: 1;
+  //   flex-basis: 0;
+  //   max-width: 100%;
+  // }
 
-  @for $i from 1 through $grid-columns {
-    .col-xl-offset-#{$i} {
-      margin-left: 100% / $grid-columns * $i;
-    }
-  }
+  // @for $i from 1 through $grid-columns {
+  //   .col-xl-offset-#{$i} {
+  //     margin-left: 100% / $grid-columns * $i;
+  //   }
+  // }
 
   .start-xl {
     justify-content: flex-start;
