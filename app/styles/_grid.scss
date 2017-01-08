@@ -14,6 +14,7 @@
   @include col-reverse();
 }
 
+// Mixin to run inside of for loop - creates col/breakpoint classes
 @mixin col-factory($thisPrefix) {
   .col-#{$thisPrefix} {
     flex-grow: 1;
@@ -59,7 +60,7 @@
   .last-#{$thisPrefix} {
     order: 1;
   }
-}
+} // Mixin to run inside of for loop - creates col/breakpoint classes
 
 @for $i from 1 through length($breakpoint-up-prefixes) {
   $thisPrefix: nth($breakpoint-up-prefixes, $i);
