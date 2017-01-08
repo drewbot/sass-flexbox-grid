@@ -79,6 +79,16 @@ var examplesObj = {
   ${indentDouble}@include hide(lg);
   ${indent}}
   }
+  `,
+  visibilityExample: `
+  <div class="row">
+  ${indent}<div class="col hide-md-up"></div>
+  ${indent}<div class="col hide-xs-up show-md-up"></div>
+  ${indent}<div class="col"></div>
+  ${indent}<div class="col"></div>
+  ${indent}<div class="col"></div>
+  ${indent}<div class="col hide-sm-only"></div>
+  </div>
   `
 }
 

@@ -51,10 +51,10 @@
             A responsive grid system based on <a href="http://flexboxgrid.com/">Flexbox&nbsp;Grid</a> and the flex property, re-written in Sass, edited and expanded upon.
           </p>
           <ul class="features-list">
-            <li>Sass&nbsp;variables,</li>
             <li>Visibility&nbsp;classes,</li>
             <li>Additional&nbsp;'XL'&nbsp;breakpoint,</li>
-            <li>Customize&nbsp;the&nbsp;number&nbsp;of&nbsp;grid&nbsp;columns,</li>
+            <li>Sass&nbsp;variables and mixins,</li>
+            <li>Customizable&nbsp;grid,</li>
             <li>No&nbsp;gutters</li>
           </ul>
         </div>
@@ -340,12 +340,36 @@
       </div>
     </section>
 
+    <section id="visibility">
+      <div class="row center-xs content-block">
+        <div class="col-xs-12 col-md-8">
+          <h2>Visibility</h2>
+          <p>
+            Visibility classes allow for responsive showing and hiding of content. See the full list of <a href="#">classes</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="row content-block">
+        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="visibilityExample"></div>
+      </div>
+
+      <div class="row example">
+        <div class="col hide-md-up"><h4>.hide-md-up</h4></div>
+        <div class="col hide-xs-up show-md-up"><h4>.hide-xs-up, .show-md-up</h4></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col hide-sm-only"><h4>.hide-sm-only</h4></div>
+      </div>
+    </section>
+
     <section id="variables">
       <div class="row center-xs content-block">
         <div class="col-xs-12 col-md-8">
           <h2>Variables</h2>
           <p>
-            Customizable Sass variables allow you to create a grid and responsive framework to meet your needs. You can easily change the number of columns in your grid from the default 12. Update your media query breakpoints by adjusting their variables and all of the classes and mixins will update accordingly. See all variables <a href="#">here</a>.
+            Customizable Sass variables allow you to create a grid and responsive framework to meet your needs. You can easily change the number of columns in your grid from the default 12. Update your media query breakpoints by adjusting their variables and all of the classes and mixins will update accordingly. See all <a href="#">variables</a>.
           </p>
         </div>
       </div>
@@ -360,7 +384,7 @@
         <div class="col-xs-12 col-md-8">
           <h2>Mixins</h2>
           <p>
-            Mixins are available for every Sass Flexbox Grid set of delarations. See the full list of mixins <a href="#">here</a>.
+            Mixins are available for every Sass Flexbox Grid set of delarations. See the full list of <a href="#">mixins</a>.
           </p>
         </div>
       </div>

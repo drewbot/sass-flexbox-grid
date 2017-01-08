@@ -20,5 +20,6 @@ $(function() {
   $('#reverseExample').html(marked(examplesObj.reverseExample));
   $('#variablesExample').html(marked(examplesObj.variablesExample));
   $('#mixinsExample').html(marked(examplesObj.mixinsExample));
+  $('#visibilityExample').html(marked(examplesObj.visibilityExample));
 
 });
