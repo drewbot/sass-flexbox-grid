@@ -18,8 +18,8 @@ var examplesObj = {
   `,
   autoWidthExample: `
   <div class="row">
-  ${indent}<div class="col-xs"></div>
-  ${indent}<div class="col-xs"></div>
+  ${indent}<div class="col"></div>
+  ${indent}<div class="col"></div>
   </div>
   `,
   nestedExample: `

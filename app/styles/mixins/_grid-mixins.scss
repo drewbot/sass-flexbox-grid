@@ -1,11 +1,13 @@
 @mixin row() {
   margin: 0 auto;
   width: 100%;
-  max-width: $content-well-max-width;
   display: flex;
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
+  @if type-of($content-well-max-width) == number and $content-well-max-width != 0 {
+    max-width: $content-well-max-width;
+  }
 }
 
 @mixin row-reverse() {
