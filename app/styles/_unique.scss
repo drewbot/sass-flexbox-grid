@@ -71,6 +71,14 @@ section {
   }
 }
 
+nav {
+  ul {
+    li {
+      color: $white;  
+    }
+  }
+}
+
 .content-block {
   padding: 0 3.2rem;
   @media #{$breakpoint-sm-up} {

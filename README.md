@@ -2,6 +2,13 @@
 ## Overview
 A responsive grid system based on [Flexbox Grid](http://flexboxgrid.com/ "flexbox-grid") and the flex property, re-written in Sass, edited and expanded upon.
 
+Enhancements include:
+- Visibility classes
+- Additional 'XL' breakpoint
+- Sass variables and mixins
+- Customizable grid
+- No gutters
+
 ## Installation
 ```
 git clone https://github.com/drewbot/sass-flexbox-grid
