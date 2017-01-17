@@ -20,21 +20,37 @@
 
 // Condition to run inside of the col mixin * not for developer use *
 @mixin col-condition($col-number) {
-  @if type-of($col-number) != number {
-    @warn "Column number must be a number (second arg in the col mixin)";
-  } @else if $col-number > $grid-columns {
-    @warn "Column number must be less than or equal to total number of columns in grid (#{$grid-columns})";
-  } @else if $col-number != 0 {
-    flex-basis: 100% / $grid-columns * $col-number;
-    max-width: 100% / $grid-columns * $col-number;
-  } @else {
+  @if type-of($col-number) == number {
+    @if $col-number > $grid-columns or $col-number == 0 {
+      @warn "Column number must be greater than 0 and less than or equal to total number of columns in the grid (#{$grid-columns})";
+    } @else {
+      flex-basis: 100% / $grid-columns * $col-number;
+      max-width: 100% / $grid-columns * $col-number;
+    }
+  } @else if $col-number == "auto" {
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
+  } @else {
+    @warn "Column number argument must either be the string 'auto' or a number greater than 0 and less than or equal to total number of columns in the grid (#{$grid-columns})";
   }
+
+  // @if type-of($col-number) != number {
+  //   @warn "Column number must be a number (second arg in the col mixin)";
+  // } @else if $col-number > $grid-columns {
+  //   @warn "Column number must be less than or equal to total number of columns in the grid (#{$grid-columns})";
+  // } @else if $col-number != "auto" {
+  //   flex-basis: 100% / $grid-columns * $col-number;
+  //   max-width: 100% / $grid-columns * $col-number;
+  // } @else if $col-number == "auto" {
+  //   flex-grow: 1;
+  //   flex-basis: 0;
+  //   max-width: 100%;
+  // }
+
 } // Condition to run inside of the col mixin * not for developer use *
 
-@mixin col($breakpoint: "xs", $col-number: 0) {
+@mixin col($breakpoint: "xs", $col-number: "auto") {
   // If no breakpoint is passed and a col number is just use the first arg as the col number and act like xs
   @if type-of($breakpoint) == number {
     $col-number: $breakpoint;
