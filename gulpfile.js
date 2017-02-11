@@ -360,7 +360,7 @@ gulp.task('minifyLibrary', () => {
 });
 
 gulp.task('zipLibrary', () => {
-  return gulp.src('download/sass-flexbox/*')
+  return gulp.src('download/sass-flexbox/**/*')
   .pipe(zip('sass-flexbox.zip'))
   .pipe(gulp.dest('download/sass-flexbox'))
 });
