@@ -35,6 +35,7 @@
     "gulp-uglify": "^1.1.0",
     "gulp-useref": "^3.0.0",
     "gulp-util": "^3.0.7",
+    "gulp-zip": "^4.0.0",
     "main-bower-files": "^2.5.0",
     "merge": "^1.2.0",
     "vinyl-buffer": "^1.0.0",

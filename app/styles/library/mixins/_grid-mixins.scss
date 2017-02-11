@@ -27,6 +27,8 @@
       flex-basis: 100% / $grid-columns * $col-number;
       max-width: 100% / $grid-columns * $col-number;
     }
+  // If no col number is passed then arg is set to "auto" by default
+  // "auto" mode fills the horizontal space with evenly sized containers
   } @else if $col-number == "auto" {
     flex-grow: 1;
     flex-basis: 0;

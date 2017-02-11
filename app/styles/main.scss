@@ -1,13 +1,11 @@
 // bower:scss
 // endbower
 
-@import "vendor/main.scss";
+@import "library/main.scss"; // Sass-Flexbox library
 @import "reset";
 @import "border-box-all";
 @import "fonts";
 @import "variables/main.scss";
 @import "mixins/main.scss";
-@import "visibility";
-@import "grid";
 @import "element-defaults";
 @import "unique";

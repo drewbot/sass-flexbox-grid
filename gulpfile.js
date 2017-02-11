@@ -21,6 +21,7 @@ const source     = require('vinyl-source-stream');
 const sourceMaps = require('gulp-sourcemaps');
 const watchify   = require('watchify');
 const uglify     = require('gulp-uglify');
+const zip = require('gulp-zip');
 
 const servePort = 9003;
 
@@ -133,6 +134,7 @@ gulp.task('serve', ['styles', 'bundle', 'fonts'], () => {
   ]).on('change', reload);
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
+  gulp.watch('app/styles/library/**/*.scss', ['compileLibrary']);
   gulp.watch('app/scripts/**/*.js', ['bundleServe']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
@@ -199,7 +201,7 @@ gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
 
-////////////////////////////////////////////////////// Begin browserify bundling
+/////// Begin browserify bundling
 var config = {
   js: {
     src: './app/scripts/app.js',      // Entry point
@@ -307,9 +309,9 @@ gulp.task('bundleMin', function () {
     .pipe(rename(config.js.outputFile))          // Rename output from 'main.js' to 'bundle.js'
     .pipe(gulp.dest(config.js.buildOutputDir))        // Save 'bundle' to build/
 })
-////////////////////////////////////////////////////// End browserify bundling
+/////// End browserify bundling
 
-////////////////////////////////////////////////////////// Start manual build browserify task
+/////////// Start manual build browserify task
 gulp.task('buildbundle', function(){
   var exec = require('child_process').exec;
   // var cmd = 'browserify app/scripts/main.js > app/scripts/bundle.js';
@@ -320,4 +322,48 @@ gulp.task('buildbundle', function(){
     // command output is in stdout
   });
 });
-////////////////////////////////////////////////////////// End manual browserify task
+/////////// End manual browserify task
+
+
+////////////////////////////////////////////////////
+    // Sass Flexbox library build tasks //
+////////////////////////////////////////////////////
+// Copy sass library to download folder
+gulp.task('copyLibrary', () => {
+  return gulp.src('app/styles/library/**/*.scss')
+    .pipe($.plumber())
+    .pipe(gulp.dest('download/sass-flexbox/scss'))
+});
+
+/// process scss and compile library for public use
+gulp.task('compileLibrary', () => {
+  return gulp.src('app/styles/library/*.scss')
+    .pipe($.plumber())
+    .pipe($.sourcemaps.init())
+    .pipe($.sass.sync({
+      outputStyle: 'expanded',
+      precision: 10,
+      includePaths: ['.']
+    }).on('error', $.sass.logError))
+    .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('download/sass-flexbox'))
+});
+
+// Minify library for public use
+gulp.task('minifyLibrary', () => {
+  return gulp.src('download/sass-flexbox/main.css')
+    .pipe($.plumber())
+    .pipe(rename('main.min.css'))
+    .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
+    .pipe(gulp.dest('download/sass-flexbox'))
+});
+
+gulp.task('zipLibrary', () => {
+  return gulp.src('download/sass-flexbox/*')
+  .pipe(zip('sass-flexbox.zip'))
+  .pipe(gulp.dest('download/sass-flexbox'))
+});
+
+
+// gulp.task('buildLibrary', ['copyLibrary', 'compileLibrary', 'minifyLibrary', 'zipLibrary']);
