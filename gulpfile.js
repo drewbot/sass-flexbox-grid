@@ -112,7 +112,7 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
+gulp.task('clean', del.bind(null, ['.tmp', 'dist', 'download/sass-flexbox']));
 
 gulp.task('serve', ['styles', 'bundle', 'fonts'], () => {
   browserSync({
@@ -359,11 +359,18 @@ gulp.task('minifyLibrary', () => {
     .pipe(gulp.dest('download/sass-flexbox'))
 });
 
+// Copy, compile, minify
+gulp.task('buildLibrary', ['copyLibrary', 'compileLibrary'], () => {
+  return gulp.src('download/sass-flexbox/main.css')
+    .pipe($.plumber())
+    .pipe(rename('main.min.css'))
+    .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
+    .pipe(gulp.dest('download/sass-flexbox'))
+});
+
+// zip library
 gulp.task('zipLibrary', () => {
   return gulp.src('download/sass-flexbox/**/*')
   .pipe(zip('sass-flexbox.zip'))
   .pipe(gulp.dest('download/sass-flexbox'))
 });
-
-
-// gulp.task('buildLibrary', ['copyLibrary', 'compileLibrary', 'minifyLibrary', 'zipLibrary']);
