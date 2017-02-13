@@ -21,7 +21,8 @@ const source     = require('vinyl-source-stream');
 const sourceMaps = require('gulp-sourcemaps');
 const watchify   = require('watchify');
 const uglify     = require('gulp-uglify');
-const zip = require('gulp-zip');
+const zip        = require('gulp-zip');
+const runSequence = require('run-sequence');
 
 const servePort = 9003;
 
@@ -112,7 +113,7 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', del.bind(null, ['.tmp', 'dist', 'download/sass-flexbox']));
+gulp.task('clean', del.bind(null, ['.tmp', 'dist', 'download/sass-flexbox/**/*']));
 
 gulp.task('serve', ['styles', 'bundle', 'fonts'], () => {
   browserSync({
@@ -360,17 +361,21 @@ gulp.task('minifyLibrary', () => {
 });
 
 // Copy, compile, minify
-gulp.task('buildLibrary', ['copyLibrary', 'compileLibrary'], () => {
-  return gulp.src('download/sass-flexbox/main.css')
-    .pipe($.plumber())
-    .pipe(rename('main.min.css'))
-    .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
-    .pipe(gulp.dest('download/sass-flexbox'))
-});
+// gulp.task('buildLibrary', ['copyLibrary', 'compileLibrary'], () => {
+//   return gulp.src('download/sass-flexbox/main.css')
+//     .pipe($.plumber())
+//     .pipe(rename('main.min.css'))
+//     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
+//     .pipe(gulp.dest('download/sass-flexbox'))
+// });
 
 // zip library
 gulp.task('zipLibrary', () => {
   return gulp.src('download/sass-flexbox/**/*')
   .pipe(zip('sass-flexbox.zip'))
   .pipe(gulp.dest('download/sass-flexbox'))
+});
+
+gulp.task('buildLibrary', function() {
+  runSequence('copyLibrary', 'compileLibrary', 'minifyLibrary', 'zipLibrary');
 });
