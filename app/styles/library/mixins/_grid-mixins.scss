@@ -5,6 +5,7 @@
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: flex-start; // Overrides flexbox's default behavior of making all children equal height
   @if type-of($content-well-max-width) == number and $content-well-max-width != 0 {
     max-width: $content-well-max-width;
   }
@@ -12,6 +13,14 @@
 
 @mixin row-reverse() {
   flex-direction: row-reverse;
+}
+
+@mixin row-eq-height() {
+  align-items: stretch;
+}
+
+@mixin row-auto-height() {
+  align-items: flex-start;
 }
 
 @mixin col-reverse() {

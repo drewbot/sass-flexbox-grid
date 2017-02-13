@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sass Flexbox Grid</title>
 
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/images/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!-- Place favicon.ico in the root directory -->
 
@@ -391,6 +391,27 @@
 
       <div class="row content-block">
         <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="mixinsExample"></div>
+      </div>
+    </section>
+
+    <section id="eqHeight">
+      <div class="row center-xs content-block">
+        <div class="col-xs-12 col-md-8">
+          <h2>Column Height Equalizer</h2>
+          <p>
+            By default, the .row class overrides flexbox's natural stretching of column height. The .eq-height row utility class applies the stretch behavior back to columns, giving the developer control of the behavior.
+          </p>
+        </div>
+      </div>
+
+      <div class="row content-block">
+        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="eqHeightExample"></div>
+      </div>
+
+      <div class="row example eq-height">
+        <div class="col"><p>They never said winning was easy.</p></div>
+        <div class="col"><p>Some people can’t handle success, I can. Another one. It’s on you how you want to live your life. Everyone has a choice. I pick my choice, squeaky clean. They don’t want us to eat. The first of the month is coming, we have to get money, we have no choice.</p></div>
+        <div class="col"><p>The key to more success is to get a massage once a week, very important, major key, cloth talk.</p></div>
       </div>
     </section>
 

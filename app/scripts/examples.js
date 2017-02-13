@@ -89,6 +89,16 @@ var examplesObj = {
   ${indent}<div class="col"></div>
   ${indent}<div class="col hide-sm-only"></div>
   </div>
+  `,
+  eqHeightExample: `
+  <div class="row eq-height">
+  ${indent}<div class="col">
+  ${indentDouble}<div height="20px"></div>
+  ${indent}</div>
+  ${indent}<div class="col">
+  ${indentDouble}<div height="150px"></div>
+  ${indent}</div>
+  </div>
   `
 }
 

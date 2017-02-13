@@ -130,6 +130,10 @@ nav {
   @media #{$breakpoint-lg-up} {
     padding: 0 4.4rem;
   }
+  p {
+    padding-top: 1em;
+    color: $white;
+  }
 }
 
 .example > div {

@@ -21,5 +21,6 @@ $(function() {
   $('#variablesExample').html(marked(examplesObj.variablesExample));
   $('#mixinsExample').html(marked(examplesObj.mixinsExample));
   $('#visibilityExample').html(marked(examplesObj.visibilityExample));
+  $('#eqHeightExample').html(marked(examplesObj.eqHeightExample));
 
 });

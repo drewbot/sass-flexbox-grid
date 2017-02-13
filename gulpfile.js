@@ -360,15 +360,6 @@ gulp.task('minifyLibrary', () => {
     .pipe(gulp.dest('download/sass-flexbox'))
 });
 
-// Copy, compile, minify
-// gulp.task('buildLibrary', ['copyLibrary', 'compileLibrary'], () => {
-//   return gulp.src('download/sass-flexbox/main.css')
-//     .pipe($.plumber())
-//     .pipe(rename('main.min.css'))
-//     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
-//     .pipe(gulp.dest('download/sass-flexbox'))
-// });
-
 // zip library
 gulp.task('zipLibrary', () => {
   return gulp.src('download/sass-flexbox/**/*')
@@ -376,6 +367,7 @@ gulp.task('zipLibrary', () => {
   .pipe(gulp.dest('download/sass-flexbox'))
 });
 
+// Copy, compile, minify, zip
 gulp.task('buildLibrary', function() {
   runSequence('copyLibrary', 'compileLibrary', 'minifyLibrary', 'zipLibrary');
 });
