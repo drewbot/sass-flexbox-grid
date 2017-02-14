@@ -10,17 +10,9 @@ $(function() {
 
   $('#siteOwner').append(mainObj.getOwnerContent());
 
-  $('#responsiveExample').html(marked(examplesObj.responsiveExample));
-  $('#offsetsExample').html(marked(examplesObj.offsetsExample));
-  $('#autoWidthExample').html(marked(examplesObj.autoWidthExample));
-  $('#nestedExample').html(marked(examplesObj.nestedExample));
-  $('#alignmentExample').html(marked(examplesObj.alignmentExample));
-  $('#distributionExample').html(marked(examplesObj.distributionExample));
-  $('#reorderExample').html(marked(examplesObj.reorderExample));
-  $('#reverseExample').html(marked(examplesObj.reverseExample));
-  $('#variablesExample').html(marked(examplesObj.variablesExample));
-  $('#mixinsExample').html(marked(examplesObj.mixinsExample));
-  $('#visibilityExample').html(marked(examplesObj.visibilityExample));
-  $('#eqHeightExample').html(marked(examplesObj.eqHeightExample));
+  // convert each example to markdown and append to el with id of the same name
+  $.each(examplesObj, function(key, value) {
+    $('#' + key).html(marked(value));
+  });
 
 });

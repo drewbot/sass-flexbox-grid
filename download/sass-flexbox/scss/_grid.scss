@@ -10,6 +10,14 @@
   @include row-reverse();
 }
 
+.row.eq-height {
+  @include row-eq-height();
+}
+
+.row.auto-height {
+  @include row-auto-height();
+}
+
 .col {
   flex-grow: 1;
   flex-basis: 0;

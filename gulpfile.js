@@ -113,7 +113,7 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', del.bind(null, ['.tmp', 'dist', 'download/sass-flexbox/**/*']));
+gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', ['styles', 'bundle', 'fonts'], () => {
   browserSync({
@@ -329,6 +329,10 @@ gulp.task('buildbundle', function(){
 ////////////////////////////////////////////////////
     // Sass Flexbox library build tasks //
 ////////////////////////////////////////////////////
+
+// Clean download folder
+gulp.task('cleanLibrary', del.bind(null, ['download/sass-flexbox/**/*']));
+
 // Copy sass library to download folder
 gulp.task('copyLibrary', () => {
   return gulp.src('app/styles/library/**/*.scss')
@@ -368,6 +372,6 @@ gulp.task('zipLibrary', () => {
 });
 
 // Copy, compile, minify, zip
-gulp.task('buildLibrary', function() {
+gulp.task('buildLibrary', ['cleanLibrary'], function() {
   runSequence('copyLibrary', 'compileLibrary', 'minifyLibrary', 'zipLibrary');
 });
