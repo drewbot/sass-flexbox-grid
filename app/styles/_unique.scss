@@ -12,17 +12,31 @@ h4 {
   }
 }
 
-header {
-  background-color: $darkslate;
-  padding: 4.8rem 0;
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $bronze;
+  padding: 0.8rem 0;
   @media #{$breakpoint-sm-up} {
-    padding: 5.4rem 0;
+    padding: 1rem 0;
   }
   @media #{$breakpoint-md-up} {
-    padding: 6rem 0;
+    padding: 1.2rem 0;
+  }
+}
+
+header {
+  background-color: $darkslate;
+  padding: 9.6rem  0 3rem 0;
+  @media #{$breakpoint-sm-up} {
+    padding: 10rem 0 3.2rem 0;
+  }
+  @media #{$breakpoint-md-up} {
+    padding: 11rem 0 3.6rem 0;
   }
   @media #{$breakpoint-lg-up} {
-    padding: 6.6rem 0;
+    padding: 11.2rem 0 4rem 0;
   }
   p {
     color: $white;
@@ -134,6 +148,16 @@ nav {
     padding-top: 1em;
     color: $white;
   }
+
+  h4, p {
+    @include font-size-line-height(1.4rem);
+    @media #{$breakpoint-md-up} {
+      @include font-size-line-height(1.7rem);
+    }
+    @media #{$breakpoint-lg-up} {
+      @include font-size-line-height(1.9rem);
+    }
+  }
 }
 
 .example > div {
@@ -151,8 +175,15 @@ nav {
   & > div {
     padding-left: 1rem;
     height: 3rem;
-    h4 {
+    h4, p {
+      font-size: 1.4rem;
       line-height: 3rem;
+      @media #{$breakpoint-md-up} {
+        font-size: 1.7rem;
+      }
+      @media #{$breakpoint-lg-up} {
+        font-size: 1.9rem;
+      }
     }
   }
 }
@@ -187,5 +218,14 @@ nav {
   }
   p {
     margin: 0;
+    font-family: $pt-mono;
+    color: lighten($darkslate, 12%);
+    @include font-size-line-height(1.4rem);
+    @media #{$breakpoint-md-up} {
+      @include font-size-line-height(1.7rem);
+    }
+    @media #{$breakpoint-lg-up} {
+      @include font-size-line-height(1.9rem);
+    }
   }
 }

@@ -20,7 +20,7 @@
   align-items: stretch;
 }
 
-// For use when row align-item flex-start has been overridden 
+// For use when row align-item flex-start has been overridden
 @mixin row-auto-height() {
   align-items: flex-start;
 }

@@ -43,377 +43,498 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <header>
-      <div class="row center-xs content-block">
-        <div class="col-xs-12 col-md-8">
-          <h1>Sass Flexbox Grid</h1>
-          <p>
-            A responsive grid system based on <a href="http://flexboxgrid.com/">Flexbox&nbsp;Grid</a> and the flex property, re-written in Sass, edited and expanded upon.
-          </p>
-          <ul class="features-list">
-            <li>Visibility&nbsp;classes,</li>
-            <li>Additional&nbsp;'XL'&nbsp;breakpoint,</li>
-            <li>Sass&nbsp;variables and mixins,</li>
-            <li>Customizable&nbsp;grid,</li>
-            <li>No&nbsp;gutters</li>
-          </ul>
+    <nav>
+      <ul class="row between-xs content-block">
+        <li>
+          <a href="/">
+            <button>home</button>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/drewbot/sass-flexbox-grid/raw/master/download/sass-flexbox/sass-flexbox.zip">
+            <button>Download</button>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/drewbot/sass-flexbox-grid">
+            <button>Github</button>
+          </a>
+        </li>
+        <li>
+          <button>menu</button>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="homeContent">
+      <header>
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h1>Sass Flexbox Grid</h1>
+            <p>
+              A responsive grid system based on <a href="http://flexboxgrid.com/">Flexbox&nbsp;Grid</a> and the flex property, re-written in Sass, edited and expanded upon.
+            </p>
+            <ul class="features-list">
+              <li>Visibility&nbsp;classes,</li>
+              <li>Additional&nbsp;'XL'&nbsp;breakpoint,</li>
+              <li>Sass&nbsp;variables and mixins,</li>
+              <li>Customizable&nbsp;grid,</li>
+              <li>No&nbsp;gutters</li>
+            </ul>
+          </div>
         </div>
-        <div class="col-xs-10 col-sm-8">
-          <div class="row">
-            <div class="col-xs-6">
-              <row class="row center-xs">
-                <div>
-                  <a href="https://github.com/drewbot/sass-flexbox-grid/raw/master/download/sass-flexbox/sass-flexbox.zip">
-                    <button>Download</button>
-                  </a>
-                </div>
-              </row>
+      </header>
+
+      <section id="responsive">
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Responsive and Fluid</h2>
+            <p>
+              Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths. Percent based widths allow fluid resizing of columns and rows.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="responsiveExample"></div>
+        </div>
+
+        <div class="row example">
+          <div class="col-xs-12 col-sm-3 col-md-2 col-lg-1"></div>
+          <div class="col-xs-6 col-sm-6 col-md-8 col-lg-10"></div>
+          <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1"></div>
+          <div class="col-xs-12 col-sm-3 col-md-2 col-lg-1"></div>
+          <div class="col-xs-12 col-sm-9 col-md-10 col-lg-11"></div>
+          <div class="col-xs-10 col-sm-6 col-md-8 col-lg-10"></div>
+          <div class="col-xs-2 col-sm-6 col-md-4 col-lg-2"></div>
+        </div>
+      </section>
+
+      <section id="offsets">
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Offsets</h2>
+            <p>
+              Offset a column
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="offsetsExample"></div>
+        </div>
+
+        <div class="row example">
+          <div class="col-xs-offset-10 col-xs-2"></div>
+          <div class="col-xs-offset-8 col-xs-4"></div>
+          <div class="col-xs-offset-6 col-xs-6"></div>
+          <div class="col-xs-offset-4 col-xs-8"></div>
+          <div class="col-xs-offset-2 col-xs-10"></div>
+          <div class="col-xs-12"></div>
+        </div>
+      </section>
+
+      <section id="autoWidth">
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Auto Width</h2>
+            <p>
+              Add any number of auto sizing columns to a row. Let the grid figure it out.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="autoWidthExample"></div>
+        </div>
+
+        <div class="row example">
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
+        <div class="row example">
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
+      </section>
+
+      <section id="autoWidth">
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Alignment</h2>
+            <p>
+              Add classes to align elements to the start or end of a row as well as the top, bottom, or center of a column
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="alignmentExample"></div>
+        </div>
+
+        <div class="row start-xs example">
+          <div class="col-xs-6">
+            <h4>.start-xs</h4>
+          </div>
+        </div>
+        <div class="row center-xs example">
+          <div class="col-xs-6">
+            <h4>.center-xs</h4>
+          </div>
+        </div>
+        <div class="row end-xs example">
+          <div class="col-xs-6">
+            <h4>.end-xs</h4>
+          </div>
+        </div>
+        <div class="row center-xs end-sm start-md example">
+            <div class="col-xs-8">
+              <h4>.center-xs, .end-sm, .start-md</h4>
             </div>
-            <div class="col-xs-6">
-              <row class="row center-xs">
-                <div>
-                  <a href="https://github.com/drewbot/sass-flexbox-grid">
-                    <button>Github</button>
-                  </a>
-                </div>
-              </row>
+        </div>
+        <div class="row example">
+          <div class="col-xs" style="height: 100px;">
+              <div class="row top-xs">
+                <div class="col-xs"><h4>.top-xs</h4></div>
+              </div>
+          </div>
+        </div>
+        <div class="row example">
+          <div class="col-xs" style="height: 100px;">
+              <div class="row middle-xs">
+                <div class="col-xs"><h4>.middle-xs</h4></div>
+              </div>
+          </div>
+        </div>
+        <div class="row example">
+          <div class="col-xs" style="height: 100px;">
+              <div class="row bottom-xs">
+                <div class="col-xs"><h4>.bottom-xs</h4></div>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="distribution">
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Distribution</h2>
+            <p>
+              Add classes to distribute the contents of a row or column.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="distributionExample"></div>
+        </div>
+
+        <div class="row example">
+          <div class="col-xs-12">
+            <div class="row around-xs">
+              <div class="col-xs-2"><h4>.around-xs</h4></div>
+              <div class="col-xs-2"></div>
+              <div class="col-xs-2"></div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
-
-    <section id="responsive">
-      <div class="row center-xs content-block">
-        <div class="col-xs-12 col-md-8">
-          <h2>Responsive and Fluid</h2>
-          <p>
-            Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths. Percent based widths allow fluid resizing of columns and rows.
-          </p>
-        </div>
-      </div>
-
-      <div class="row content-block">
-        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="responsiveExample"></div>
-      </div>
-
-      <div class="row example">
-        <div class="col-xs-12 col-sm-3 col-md-2 col-lg-1"></div>
-        <div class="col-xs-6 col-sm-6 col-md-8 col-lg-10"></div>
-        <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1"></div>
-        <div class="col-xs-12 col-sm-3 col-md-2 col-lg-1"></div>
-        <div class="col-xs-12 col-sm-9 col-md-10 col-lg-11"></div>
-        <div class="col-xs-10 col-sm-6 col-md-8 col-lg-10"></div>
-        <div class="col-xs-2 col-sm-6 col-md-4 col-lg-2"></div>
-      </div>
-    </section>
-
-    <section id="offsets">
-      <div class="row center-xs content-block">
-        <div class="col-xs-12 col-md-8">
-          <h2>Offsets</h2>
-          <p>
-            Offset a column
-          </p>
-        </div>
-      </div>
-
-      <div class="row content-block">
-        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="offsetsExample"></div>
-      </div>
-
-      <div class="row example">
-        <div class="col-xs-offset-10 col-xs-2"></div>
-        <div class="col-xs-offset-8 col-xs-4"></div>
-        <div class="col-xs-offset-6 col-xs-6"></div>
-        <div class="col-xs-offset-4 col-xs-8"></div>
-        <div class="col-xs-offset-2 col-xs-10"></div>
-        <div class="col-xs-12"></div>
-      </div>
-    </section>
-
-    <section id="autoWidth">
-      <div class="row center-xs content-block">
-        <div class="col-xs-12 col-md-8">
-          <h2>Auto Width</h2>
-          <p>
-            Add any number of auto sizing columns to a row. Let the grid figure it out.
-          </p>
-        </div>
-      </div>
-
-      <div class="row content-block">
-        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="autoWidthExample"></div>
-      </div>
-
-      <div class="row example">
-        <div class="col"></div>
-        <div class="col"></div>
-      </div>
-      <div class="row example">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-      </div>
-    </section>
-
-    <section id="nested">
-      <div class="row center-xs content-block">
-        <div class="col-xs-12 col-md-8">
-          <h2>Nested Grids</h2>
-          <p>
-            Nest grids inside grids inside grids.
-          </p>
-        </div>
-      </div>
-
-      <div class="row content-block">
-        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="nestedExample"></div>
-      </div>
-
-      <div class="row example">
-        <div class="col-xs">
-            <div class="row">
-              <div class="col-xs"></div>
-              <div class="col-xs"></div>
+        <div class="row example">
+          <div class="col-xs-12">
+            <div class="row between-xs">
+              <div class="col-xs-2"><h4>.between-xs</h4></div>
+              <div class="col-xs-2"></div>
+              <div class="col-xs-2"></div>
             </div>
-        </div>
-        <div class="col-xs">
-            <div class="row">
-              <div class="col-xs"></div>
-              <div class="col-xs"></div>
-              <div class="col-xs"></div>
-              <div class="col-xs"></div>
-            </div>
-        </div>
-        <div class="col-xs">
-            <div class="row">
-              <div class="col-xs"></div>
-              <div class="col-xs"></div>
-              <div class="col-xs"></div>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="autoWidth">
-      <div class="row center-xs content-block">
-        <div class="col-xs-12 col-md-8">
-          <h2>Alignment</h2>
-          <p>
-            Add classes to align elements to the start or end of a row as well as the top, bottom, or center of a column
-          </p>
-        </div>
-      </div>
-
-      <div class="row content-block">
-        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="alignmentExample"></div>
-      </div>
-
-      <div class="row start-xs example">
-        <div class="col-xs-6">
-          <h4>.start-xs</h4>
-        </div>
-      </div>
-      <div class="row center-xs example">
-        <div class="col-xs-6">
-          <h4>.center-xs</h4>
-        </div>
-      </div>
-      <div class="row end-xs example">
-        <div class="col-xs-6">
-          <h4>.end-xs</h4>
-        </div>
-      </div>
-      <div class="row center-xs end-sm start-md example">
-          <div class="col-xs-8">
-            <h4>.center-xs, .end-sm, .start-md</h4>
-          </div>
-      </div>
-      <div class="row example">
-        <div class="col-xs" style="height: 100px;">
-            <div class="row top-xs">
-              <div class="col-xs"><h4>.top-xs</h4></div>
-            </div>
-        </div>
-      </div>
-      <div class="row example">
-        <div class="col-xs" style="height: 100px;">
-            <div class="row middle-xs">
-              <div class="col-xs"><h4>.middle-xs</h4></div>
-            </div>
-        </div>
-      </div>
-      <div class="row example">
-        <div class="col-xs" style="height: 100px;">
-            <div class="row bottom-xs">
-              <div class="col-xs"><h4>.bottom-xs</h4></div>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="distribution">
-      <div class="row center-xs content-block">
-        <div class="col-xs-12 col-md-8">
-          <h2>Distribution</h2>
-          <p>
-            Add classes to distribute the contents of a row or column.
-          </p>
-        </div>
-      </div>
-
-      <div class="row content-block">
-        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="distributionExample"></div>
-      </div>
-
-      <div class="row example">
-        <div class="col-xs-12">
-          <div class="row around-xs">
-            <div class="col-xs-2"><h4>.around-xs</h4></div>
-            <div class="col-xs-2"></div>
-            <div class="col-xs-2"></div>
           </div>
         </div>
-      </div>
-      <div class="row example">
-        <div class="col-xs-12">
-          <div class="row between-xs">
-            <div class="col-xs-2"><h4>.between-xs</h4></div>
-            <div class="col-xs-2"></div>
-            <div class="col-xs-2"></div>
+      </section>
+
+      <section id="reordering">
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Reordering</h2>
+            <p>
+              Add classes to reorder columns.
+            </p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section id="reordering">
-      <div class="row center-xs content-block">
-        <div class="col-xs-12 col-md-8">
-          <h2>Reordering</h2>
-          <p>
-            Add classes to reorder columns.
-          </p>
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="reorderExample"></div>
         </div>
-      </div>
 
-      <div class="row content-block">
-        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="reorderExample"></div>
-      </div>
-
-      <div class="row eq-height example">
-        <div class="col-xs-2"><h4>1</h4></div>
-        <div class="col-xs-2"><h4>2</h4></div>
-        <div class="col-xs-2 first-xs"><h4>3 (.first-xs)</h4></div>
-        <div class="col-xs-2"><h4>4</h4></div>
-        <div class="col-xs-2"><h4>5</h4></div>
-        <div class="col-xs-2"><h4>6</h4></div>
-      </div>
-      <div class="row eq-height example">
-        <div class="col-xs-2"><h4>1</h4></div>
-        <div class="col-xs-2"><h4>2</h4></div>
-        <div class="col-xs-2 last-xs"><h4>3 (.last-xs)</h4></div>
-        <div class="col-xs-2"><h4>4</h4></div>
-        <div class="col-xs-2"><h4>5</h4></div>
-        <div class="col-xs-2"><h4>6</h4></div>
-      </div>
-    </section>
-
-    <section id="reversing">
-      <div class="row center-xs content-block">
-        <div class="col-xs-12 col-md-8">
-          <h2>Reversing</h2>
-          <p>
-            Add a class to reverse columns or column content.
-          </p>
+        <div class="row eq-height example">
+          <div class="col-xs-2"><h4>1</h4></div>
+          <div class="col-xs-2"><h4>2</h4></div>
+          <div class="col-xs-2 first-xs"><h4>3 (.first-xs)</h4></div>
+          <div class="col-xs-2"><h4>4</h4></div>
+          <div class="col-xs-2"><h4>5</h4></div>
+          <div class="col-xs-2"><h4>6</h4></div>
         </div>
-      </div>
-
-      <div class="row content-block">
-        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="reverseExample"></div>
-      </div>
-
-      <div class="row reverse example">
-        <div class="col-xs"><h4>1</h4></div>
-        <div class="col-xs"><h4>2</h4></div>
-        <div class="col-xs"><h4>3</h4></div>
-      </div>
-    </section>
-
-    <section id="eqHeight">
-      <div class="row center-xs content-block">
-        <div class="col-xs-12 col-md-8">
-          <h2>Column Height Equalizer</h2>
-          <p>
-            By default, the .row class overrides flexbox's natural stretching of column height. The .eq-height row utility class applies the stretch behavior back to the columns, giving the developer control of the behavior.
-          </p>
+        <div class="row eq-height example">
+          <div class="col-xs-2"><h4>1</h4></div>
+          <div class="col-xs-2"><h4>2</h4></div>
+          <div class="col-xs-2 last-xs"><h4>3 (.last-xs)</h4></div>
+          <div class="col-xs-2"><h4>4</h4></div>
+          <div class="col-xs-2"><h4>5</h4></div>
+          <div class="col-xs-2"><h4>6</h4></div>
         </div>
-      </div>
+      </section>
 
-      <div class="row content-block">
-        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="eqHeightExample"></div>
-      </div>
-
-      <div class="row eq-height example hide-xs-only">
-        <div class="col"><p>They never said winning was easy.</p></div>
-        <div class="col"><p>Another one. It’s on you how you want to live your life. Everyone has a choice. I pick my choice, squeaky clean. They don’t want us to eat. The first of the month is coming, we have to get money, we have no choice. Some people can’t handle success, I can. </p></div>
-        <div class="col"><p>The key to more success is to get a massage once a week, very important, major key, cloth talk.</p></div>
-      </div>
-    </section>
-
-    <section id="visibility">
-      <div class="row center-xs content-block">
-        <div class="col-xs-12 col-md-8">
-          <h2>Visibility</h2>
-          <p>
-            Visibility classes allow for responsive showing and hiding of content. See the full list of <a href="#">classes</a>.
-          </p>
+      <section id="reversing">
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Reversing</h2>
+            <p>
+              Add a class to reverse columns or column content.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div class="row content-block">
-        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="visibilityExample"></div>
-      </div>
-
-      <div class="row eq-height example">
-        <div class="col hide-md-up"><h4>.hide-md-up</h4></div>
-        <div class="col hide-xs-up show-md-up"><h4>.hide-xs-up, .show-md-up</h4></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col hide-sm-only"><h4>.hide-sm-only</h4></div>
-      </div>
-    </section>
-
-    <section id="variables">
-      <div class="row center-xs content-block">
-        <div class="col-xs-12 col-md-8">
-          <h2>Variables</h2>
-          <p>
-            Customizable Sass variables allow you to create a grid and responsive framework to meet your needs. You can easily change the number of columns in your grid from the default 12. Update your media query breakpoints by adjusting their variables and all of the classes and mixins will update accordingly. See all <a href="#">variables</a>.
-          </p>
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="reverseExample"></div>
         </div>
-      </div>
 
-      <div class="row content-block">
-        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="variablesExample"></div>
-      </div>
-    </section>
-
-    <section id="mixins">
-      <div class="row center-xs content-block">
-        <div class="col-xs-12 col-md-8">
-          <h2>Mixins</h2>
-          <p>
-            Mixins are available for every Sass Flexbox Grid set of delarations. See the full list of <a href="#">mixins</a>.
-          </p>
+        <div class="row reverse example">
+          <div class="col-xs"><h4>1</h4></div>
+          <div class="col-xs"><h4>2</h4></div>
+          <div class="col-xs"><h4>3</h4></div>
         </div>
-      </div>
+      </section>
 
-      <div class="row content-block">
-        <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="mixinsExample"></div>
-      </div>
-    </section>
+      <section id="eqHeight">
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Column Height Equalizer</h2>
+            <p>
+              By default, the .row class overrides flexbox's natural stretching of column height, allowing for custom horizontal alignment of row contents. The .eq-height row utility class applies the stretch behavior back to the columns, giving the developer control of the behavior.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="eqHeightExample"></div>
+        </div>
+
+        <div class="row eq-height example hide-xs-only">
+          <div class="col"><p>They never said winning was easy.</p></div>
+          <div class="col"><p>Another one. It’s on you how you want to live your life. Everyone has a choice. I pick my choice, squeaky clean. They don’t want us to eat. The first of the month is coming, we have to get money, we have no choice. Some people can’t handle success, I can. </p></div>
+          <div class="col"><p>The key to more success is to get a massage once a week, very important, major key, cloth talk.</p></div>
+        </div>
+      </section>
+
+      <section id="nested">
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Nested Grids</h2>
+            <p>
+              Nest grids inside grids inside grids.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="nestedExample"></div>
+        </div>
+
+        <div class="row example">
+          <div class="col-xs">
+              <div class="row">
+                <div class="col-xs"></div>
+                <div class="col-xs"></div>
+              </div>
+          </div>
+          <div class="col-xs">
+              <div class="row">
+                <div class="col-xs"></div>
+                <div class="col-xs"></div>
+                <div class="col-xs"></div>
+                <div class="col-xs"></div>
+              </div>
+          </div>
+          <div class="col-xs">
+              <div class="row">
+                <div class="col-xs"></div>
+                <div class="col-xs"></div>
+                <div class="col-xs"></div>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="visibility">
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Visibility</h2>
+            <p>
+              Visibility classes allow for responsive showing and hiding of content. See the full list of <a href="#">classes</a>.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="visibilityExample"></div>
+        </div>
+
+        <div class="row eq-height example">
+          <div class="col hide-md-up"><h4>.hide-md-up</h4></div>
+          <div class="col hide-xs-up show-md-up"><h4>.hide-xs-up, .show-md-up</h4></div>
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col hide-sm-only"><h4>.hide-sm-only</h4></div>
+        </div>
+      </section>
+
+      <section id="variables">
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Variables</h2>
+            <p>
+              Customizable Sass variables allow you to create a grid and responsive framework to meet your needs. You can easily change the number of columns in your grid from the default 12. Update your breakpoint ranges by adjusting these variables and all of the media queries, classes and mixins will update accordingly. See all <a href="/variables">variables</a>.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="variablesExample"></div>
+        </div>
+      </section>
+
+      <section id="mixins">
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Mixins</h2>
+            <p>
+              Mixins are available for every Sass Flexbox Grid set of delarations. See the full list of <a href="/mixins">mixins</a>.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="mixinsExample"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Variables Detail View -->
+
+    <div id="variablesContent">
+      <header>
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h1>Sass Flexbox Grid Variables</h1>
+            <p>
+              Customizable Sass variables allow you to create a grid and responsive framework to meet your needs.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <section>
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Grid Control</h2>
+            <p>
+              You can easily change the number of columns in your grid from the default 12. Update your breakpoint ranges by adjusting these variables and all of the media queries, classes and mixins will update accordingly.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="gridVars"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Breakpoint Ranges</h2>
+            <p>
+              Breakpoint range variables are automagically created based on the grid variables.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="breakpointVars"></div>
+        </div>
+      </section>
+    </div>
+
+    <div id="mixinsContent">
+      <header>
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h1>Sass Flexbox Grid Mixins</h1>
+            <p>
+              Mixins are available for every Sass Flexbox Grid declaration.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <section>
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Row Mixins</h2>
+            <p>
+              Establish a container as a row and customize.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="rowMixins"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Column Mixins</h2>
+            <p>
+              Establish a container as a column and customize.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="colMixins"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Arrangement Mixins</h2>
+            <p>
+              Customize the arrangement, placement and orientation.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="arrangeMixins"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h2>Visibility Mixins</h2>
+            <p>
+              Hide and show content within all or various breakpoint ranges.
+            </p>
+          </div>
+        </div>
+
+        <div class="row content-block">
+          <div class="col-xs-12 col-md-offset-2 col-md-8 code-block" id="visibilityMixins"></div>
+        </div>
+      </section>
+    </div>
 
     <footer id="footerSection">
       <div class="row content-block">
@@ -421,11 +542,6 @@
           <li>
             <aside id="siteOwner"></aside>
           </li>
-          <!-- copyright start (main.js reference) -->
-          <!-- <li>
-            <aside id="copyright"></aside>
-          </li> -->
-          <!-- copyright end -->
         </ul>
       </div>
     </footer>
@@ -444,6 +560,7 @@
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/marked/lib/marked.js"></script>
+    <script src="/bower_components/navigo/lib/navigo.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

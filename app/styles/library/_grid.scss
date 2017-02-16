@@ -24,11 +24,11 @@
   max-width: 100%;
 }
 
-.col-reverse {
+.col.reverse {
   @include col-reverse();
 }
 
-// Mixin to run inside of for loop - creates col/breakpoint classes
+// Mixin to run inside of for loop - creates col/breakpoint classes * Not for developer use *
 @mixin col-factory($thisPrefix) {
   .col-#{$thisPrefix} {
     flex-grow: 1;
