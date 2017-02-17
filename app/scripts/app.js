@@ -2,17 +2,19 @@ import customRouter from './router.js';
 import setMarkedOptions from './marked.js';
 import mainObj from './main.js';
 import examplesObj from './content/examples.js';
+import sassClassesObj from './content/sass-classes.js';
 import sassVarsObj from './content/sass-variables.js';
 import sassMixinsObj from './content/sass-mixins.js';
 import overviewCollection from './content/overview.js';
 import variablesCollection from './content/variables.js';
 import mixinsCollection from './content/mixins.js';
+import classesCollection from './content/classes.js';
 
 console.log(mainObj.isTouchDevice() ? 'Touch Device': 'Desktop');
 
 setMarkedOptions();
 
-var codeContentsArray = [examplesObj, sassVarsObj, sassMixinsObj];
+var codeContentsArray = [examplesObj, sassClassesObj, sassVarsObj, sassMixinsObj];
 
 $(function() {
 
@@ -32,6 +34,8 @@ $(function() {
 
   mixinsCollection.forEach( makeFeatureDetail );
 
+  classesCollection.forEach( makeFeatureDetail );
+
   customRouter();
 
   var markedSection = function(obj) {
@@ -45,5 +49,17 @@ $(function() {
   })
 
   $('#siteOwner').append(mainObj.getOwnerContent());
+
+  $('#menuOpen').on('click', function() {
+    $('#menu').show();
+  })
+
+  $('#menuClose').on('click', function() {
+    $('#menu').hide();
+  })
+
+  $('#menu a').on('click', function() {
+    event.stopPropagation();
+  })
 
 });

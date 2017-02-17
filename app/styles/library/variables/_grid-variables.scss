@@ -26,5 +26,5 @@ $breakpoint-xl-up: "only screen and (min-width: #{$xl-start})"; // xl-start -> u
 
 $breakpoints-all: ($breakpoint-xs-only, $breakpoint-sm-up, $breakpoint-sm-only, $breakpoint-md-up, $breakpoint-md-only, $breakpoint-lg-up, $breakpoint-lg-only, $breakpoint-xl-up);
 $breakpoint-ups: ($breakpoint-sm-up, $breakpoint-md-up, $breakpoint-lg-up, $breakpoint-xl-up);
-$breakpoint-all-prefixes: ("xs-up", "xs-only", "sm-up", "sm-only", "md-up", "md-only", "lg-up", "lg-only", "xl-up");
+$breakpoint-all-prefixes: ("xs", "xs-only", "sm", "sm-only", "md", "md-only", "lg", "lg-only", "xl");
 $breakpoint-up-prefixes: ("xs", "sm", "md", "lg", "xl");

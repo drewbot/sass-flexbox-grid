@@ -17,12 +17,75 @@ nav {
   top: 0;
   width: 100%;
   background-color: $bronze;
-  padding: 0.6rem 0;
+  padding: 0.5rem 0;
   @media #{$breakpoint-sm-up} {
-    padding: 0.8rem 0;
+    padding: 0.6rem 0;
   }
   @media #{$breakpoint-md-up} {
-    padding: 1rem 0;
+    padding: 0.8rem 0;
+  }
+
+  i {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+#menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(48, 48, 48, 0.95);
+  text-align: center;
+  padding: 9.6rem  0 3rem 0;
+  @media #{$breakpoint-sm-up} {
+    padding: 10rem 0 3.2rem 0;
+  }
+  @media #{$breakpoint-md-up} {
+    padding: 11rem 0 3.6rem 0;
+  }
+  @media #{$breakpoint-lg-up} {
+    padding: 11.2rem 0 4rem 0;
+  }
+
+  li {
+    font-size: 2.4rem;
+    line-height: 4.2rem;
+    @media #{$breakpoint-md-up} {
+      font-size: 3rem;
+      line-height: 5.4rem
+    }
+    @media #{$breakpoint-lg-up} {
+      font-size: 3.2rem;
+      line-height: 5.8rem
+    }
+  }
+
+  a {
+    display: block;
+    color: $white;
+    text-decoration: none;
+    &:hover {
+      background-color: darken($darkslate, 1.4%);;
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    cursor: pointer;
+    @include font-size-line-height(2.2rem);
+    @media #{$breakpoint-md-up} {
+      @include font-size-line-height(2.6rem);
+    }
+    @media #{$breakpoint-lg-up} {
+      @include font-size-line-height(2.8rem);
+    }
   }
 }
 

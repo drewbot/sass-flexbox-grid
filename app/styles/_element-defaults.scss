@@ -105,15 +105,26 @@ button {
   transition: background-color 0.2s ease-in;
   transition: border 0.2s ease-in;
   @media #{$breakpoint-md-up} {
-    padding: 4px 16px 4px 16px;
+    padding: 3px 15px 3px 15px;
     @include font-size-line-height(1.6rem);
   }
   @media #{$breakpoint-lg-up} {
-    padding: 6px 18px 6px 18px;
+    padding: 5px 16px 5px 16px;
     @include font-size-line-height(1.8rem);
   }
   &:hover {
     cursor: pointer;
     background-color: lighten($bronze, 15%);
+  }
+}
+
+.fa {
+  color: $white;
+  @include font-size-line-height(1.8rem);
+  @media #{$breakpoint-md-up} {
+    @include font-size-line-height(2rem);
+  }
+  @media #{$breakpoint-lg-up} {
+    @include font-size-line-height(2.2rem);
   }
 }

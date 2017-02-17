@@ -6,7 +6,8 @@
     "modernizr": "~2.8.1",
     "marked": "^0.3.6",
     "navigo": "^4.0.1",
-    "handlebars": "^4.0.5"
+    "handlebars": "^4.0.5",
+    "font-awesome": "fontawesome#^4.7.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

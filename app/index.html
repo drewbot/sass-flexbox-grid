@@ -27,6 +27,7 @@
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -44,27 +45,45 @@
     <![endif]-->
 
     <nav>
-      <ul class="row between-xs content-block">
-        <li>
+      <div class="row between-xs content-block">
+        <div>
           <a href="/">
-            <button>home</button>
+            <i class="fa fa-home" aria-hidden="true"></i>
           </a>
-        </li>
-        <li>
+        </div>
+        <div>
           <a href="https://github.com/drewbot/sass-flexbox-grid/raw/master/download/sass-flexbox/sass-flexbox.zip">
-            <button>Download</button>
+            <button><i class="fa fa-download" aria-hidden="true"></i><span class="hide-xs-only"> Download</span></button>
           </a>
-        </li>
-        <li>
+        </div>
+        <div>
           <a href="https://github.com/drewbot/sass-flexbox-grid">
-            <button>Github</button>
+            <button><i class="fa fa-github" aria-hidden="true"></i><span class="hide-xs-only"> Github</span></button>
           </a>
+        </div>
+        <div id="menuOpen">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+      </div>
+    </nav>
+
+    <div id="menu">
+      <i id="menuClose" class="fa fa-window-close-o close" aria-hidden="true"></i>
+      <ul>
+        <li>
+          <a href="/">Overview</a>
         </li>
         <li>
-          <button>menu</button>
+          <a href="/classes">Classes</a>
+        </li>
+        <li>
+          <a href="/variables">Variables</a>
+        </li>
+        <li>
+          <a href="/mixins">Mixins</a>
         </li>
       </ul>
-    </nav>
+    </div>
 
     <div id="view-home" class="">
       <header>
@@ -256,8 +275,8 @@
       <section id="visibility">
 
         <div class="row eq-height example">
-          <div class="col hide-md-up"><h4>.hide-md-up</h4></div>
-          <div class="col hide-xs-up show-md-up"><h4>.hide-xs-up, .show-md-up</h4></div>
+          <div class="col hide-md"><h4>.hide-md</h4></div>
+          <div class="col hide-xs show-md"><h4>.hide-xs, .show-md</h4></div>
           <div class="col"></div>
           <div class="col"></div>
           <div class="col"></div>
@@ -272,13 +291,27 @@
       </section>
     </div>
 
-    <!-- Variables Detail View -->
+    <div id="view-classes">
+      <header>
+        <div class="row center-xs content-block">
+          <div class="col-xs-12 col-md-8">
+            <h1>Classes</h1>
+            <p>
+              Sass Flexbox Grid provides a library of utility classes for defining rows, columns and visibility. Using flexbox's powerful features, you can easily create dynamic layouts.
+            </p>
+          </div>
+        </div>
+      </header>
+      <section id="rowClasses"></section>
+      <section id="colClasses"></section>
+      <section id="visClasses"></section>
+    </div>
 
     <div id="view-variables">
       <header>
         <div class="row center-xs content-block">
           <div class="col-xs-12 col-md-8">
-            <h1>Sass Flexbox Grid Variables</h1>
+            <h1>Variables</h1>
             <p>
               Customizable Sass variables allow you to create a grid and responsive framework to meet your needs.
             </p>
@@ -293,7 +326,7 @@
       <header>
         <div class="row center-xs content-block">
           <div class="col-xs-12 col-md-8">
-            <h1>Sass Flexbox Grid Mixins</h1>
+            <h1>Mixins</h1>
             <p>
               Mixins are available for every Sass Flexbox Grid declaration.
             </p>

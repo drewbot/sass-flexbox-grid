@@ -28,6 +28,13 @@
   @include col-reverse();
 }
 
+.first {
+  order: -1;
+}
+.last {
+  order: 1;
+}
+
 // Mixin to run inside of for loop - creates col/breakpoint classes * Not for developer use *
 @mixin col-factory($thisPrefix) {
   .col-#{$thisPrefix} {

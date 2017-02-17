@@ -82,8 +82,8 @@ var examplesObj = {
   `,
   visibilityExample: `
   <div class="row">
-  ${indent}<div class="col hide-md-up"></div>
-  ${indent}<div class="col hide-xs-up show-md-up"></div>
+  ${indent}<div class="col hide-md"></div>
+  ${indent}<div class="col hide-xs show-md"></div>
   ${indent}<div class="col"></div>
   ${indent}<div class="col"></div>
   ${indent}<div class="col"></div>

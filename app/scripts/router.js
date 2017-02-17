@@ -1,11 +1,11 @@
 var root = null,
     useHash = false,
     router = new Navigo(root, useHash),
-    $viewContent = $('.view-content'),
     $allViews = $( '[id|="view"]' ),
-    $homeContent = $('#view-home'),
-    $mixinsContent = $('#view-mixins'),
-    $variablesContent = $('#view-variables');
+    $homeView = $('#view-home'),
+    $classesView = $('#view-classes'),
+    $mixinsView = $('#view-mixins'),
+    $variablesView = $('#view-variables');
 
 var replaceView = function($view) {
   $allViews.hide();
@@ -15,17 +15,17 @@ var replaceView = function($view) {
 var customRouter = function() {
   return router
           .on({
-            'row-classes': function() {
-              console.log('Row Classes');
+            'classes': function() {
+              replaceView($classesView);
             },
             'variables': function() {
-              replaceView($variablesContent);
+              replaceView($variablesView);
             },
             'mixins': function() {
-              replaceView($mixinsContent);
+              replaceView($mixinsView);
             },
             '*': function() {
-              replaceView($homeContent);
+              replaceView($homeView);
             }
           })
           .resolve();
