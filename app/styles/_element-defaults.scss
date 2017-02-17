@@ -94,7 +94,7 @@ img {
 }
 
 button {
-  padding: 4px 16px 4px 16px;
+  padding: 2px 14px 2px 14px;
   background-color: lighten($bronze, 10%);
   font-family: $graphik-medium;
   text-align: center;
@@ -105,11 +105,11 @@ button {
   transition: background-color 0.2s ease-in;
   transition: border 0.2s ease-in;
   @media #{$breakpoint-md-up} {
-    padding: 6px 18px 6px 18px;
+    padding: 4px 16px 4px 16px;
     @include font-size-line-height(1.6rem);
   }
   @media #{$breakpoint-lg-up} {
-    padding: 8px 24px 8px 24px;
+    padding: 6px 18px 6px 18px;
     @include font-size-line-height(1.8rem);
   }
   &:hover {

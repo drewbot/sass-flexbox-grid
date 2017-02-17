@@ -6,13 +6,13 @@ var indent = `&nbsp;&nbsp;`,
     indentSextuple = indentQuintuple + indent;
 
 var sassMixinsObj = {
-  rowMixins: `
+  rowMixinsExample: `
   @include row();
   @include row-reverse();
   @include row-eq-height();
   @include row-auto-height();
   `,
-  colMixins: `
+  colMixinsExample: `
   @include col(<breakpoint prefix>, <number of columns>);
   ${indent}// no breakpoint arg = xs-<number of columns>
   ${indent}@include col(<number of columns>);
@@ -21,7 +21,7 @@ var sassMixinsObj = {
   @include col-offset(<breakpoint prefix>, <number of columns>);
   @include col-reverse();
   `,
-  arrangeMixins: `
+  arrangeMixinsExample: `
   // apply to a row to arrange descendants
   @include start(<breakpoint prefix>);
   @include center(<breakpoint prefix>);
@@ -36,7 +36,7 @@ var sassMixinsObj = {
   @include first(<breakpoint prefix>);
   @include last(<breakpoint prefix>);
   `,
-  visibilityMixins: `
+  visibilityMixinsExample: `
   @include show(<breakpoint range prefix>);
   @include hide(<breakpoint range prefix>);
   `

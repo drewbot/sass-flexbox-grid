@@ -17,12 +17,12 @@ nav {
   top: 0;
   width: 100%;
   background-color: $bronze;
-  padding: 0.8rem 0;
+  padding: 0.6rem 0;
   @media #{$breakpoint-sm-up} {
-    padding: 1rem 0;
+    padding: 0.8rem 0;
   }
   @media #{$breakpoint-md-up} {
-    padding: 1.2rem 0;
+    padding: 1rem 0;
   }
 }
 

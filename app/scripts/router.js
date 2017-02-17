@@ -2,31 +2,30 @@ var root = null,
     useHash = false,
     router = new Navigo(root, useHash),
     $viewContent = $('.view-content'),
-    $homeContent = $('#homeContent'),
-    $mixinsContent = $('#mixinsContent'),
-    $variablesContent = $('#variablesContent');
+    $allViews = $( '[id|="view"]' ),
+    $homeContent = $('#view-home'),
+    $mixinsContent = $('#view-mixins'),
+    $variablesContent = $('#view-variables');
 
-
+var replaceView = function($view) {
+  $allViews.hide();
+  $view.show();
+}
 
 var customRouter = function() {
   return router
           .on({
-            'variables': function () {
-              console.log('Variables');
-              $homeContent.hide();
-              $mixinsContent.hide();
-              $variablesContent.show();
+            'row-classes': function() {
+              console.log('Row Classes');
             },
-            'mixins': function () {
-              console.log('Mixins');
-              $homeContent.hide();
-              $variablesContent.hide();
-              $mixinsContent.show();
+            'variables': function() {
+              replaceView($variablesContent);
             },
-            '*': function () {
-              console.log('home');
-              $variablesContent.hide();
-              $mixinsContent.hide();
+            'mixins': function() {
+              replaceView($mixinsContent);
+            },
+            '*': function() {
+              replaceView($homeContent);
             }
           })
           .resolve();

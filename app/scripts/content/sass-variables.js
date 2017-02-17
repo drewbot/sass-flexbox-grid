@@ -6,7 +6,7 @@ var indent = `&nbsp;&nbsp;`,
     indentSextuple = indentQuintuple + indent;
 
 var sassVarsObj = {
-  gridVars: `
+  gridVarsExample: `
   $grid-columns: 12; // Set number of columns in the grid
   ${indent}
   $xs-max: 640px; // Set xs breakpoint's max width
@@ -21,7 +21,7 @@ var sassVarsObj = {
   ${indent}
   $content-well-max-width: 2400px; // Set the max-width of the content well
   `,
-  breakpointVars: `
+  breakpointVarsExample: `
   $breakpoint-xs-only: "only screen and (max-width: #{$xs-max})";
   $breakpoint-sm-up: "only screen and (min-width: #{$sm-start})";
   $breakpoint-sm-only: "only screen and (min-width: #{$sm-start}) and (max-width: #{$sm-max})";
