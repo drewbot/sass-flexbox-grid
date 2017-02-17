@@ -69,6 +69,7 @@ nav {
     display: block;
     color: $white;
     text-decoration: none;
+    transition: all 200ms ease;
     &:hover {
       background-color: darken($darkslate, 1.4%);;
     }
