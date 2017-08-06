@@ -1,10 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
-var _router = require('./router.js');
-
-var _router2 = _interopRequireDefault(_router);
-
 var _marked = require('./marked.js');
 
 var _marked2 = _interopRequireDefault(_marked);
@@ -47,6 +43,7 @@ var _classes2 = _interopRequireDefault(_classes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import customRouter from './router.js';
 console.log(_main2.default.isTouchDevice() ? 'Touch Device' : 'Desktop');
 
 (0, _marked2.default)();
@@ -73,7 +70,7 @@ $(function () {
 
   _classes2.default.forEach(makeFeatureDetail);
 
-  (0, _router2.default)();
+  // customRouter();
 
   var markedSection = function markedSection(obj) {
     $.each(obj, function (key, value) {
@@ -95,12 +92,12 @@ $(function () {
     $('#menu').hide();
   });
 
-  $('#menu a').on('click', function () {
-    event.stopPropagation();
-  });
+  // $('#menu a').on('click', function() {
+  //   event.stopPropagation();
+  // })
 });
 
-},{"./content/classes.js":2,"./content/examples.js":3,"./content/mixins.js":4,"./content/overview.js":5,"./content/sass-classes.js":6,"./content/sass-mixins.js":7,"./content/sass-variables.js":8,"./content/variables.js":9,"./main.js":10,"./marked.js":11,"./router.js":12}],2:[function(require,module,exports){
+},{"./content/classes.js":2,"./content/examples.js":3,"./content/mixins.js":4,"./content/overview.js":5,"./content/sass-classes.js":6,"./content/sass-mixins.js":7,"./content/sass-variables.js":8,"./content/variables.js":9,"./main.js":10,"./marked.js":11}],2:[function(require,module,exports){
 'use strict';
 
 var classesCollection = [{
@@ -294,7 +291,7 @@ var mixinsCollection = [{
   sectionId: 'rowMixins',
   codeBlockId: 'rowMixinsExample',
   title: 'Row Mixins',
-  description: 'Establish a container as a row and customize.',
+  description: 'Set a container as a row and customize.',
   hasLink: false,
   href: '',
   linkContent: ''
@@ -302,7 +299,7 @@ var mixinsCollection = [{
   sectionId: 'colMixins',
   codeBlockId: 'colMixinsExample',
   title: 'Column Mixins',
-  description: 'Establish a container as a column and customize.',
+  description: 'Set a container as a column and customize.',
   hasLink: false,
   href: '',
   linkContent: ''
@@ -335,7 +332,7 @@ var overviewCollection = [{
   title: 'Responsive and Fluid',
   description: 'Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths. Percent based widths allow fluid resizing of columns and rows.',
   hasLink: true,
-  href: '/classes',
+  href: '/views/classes.html',
   linkContent: 'See all classes'
 }, {
   sectionId: 'offsets',
@@ -343,15 +340,15 @@ var overviewCollection = [{
   title: 'Offsets',
   description: 'Offset a column.',
   hasLink: true,
-  href: '/classes',
+  href: '/views/classes.html',
   linkContent: 'See all classes'
 }, {
   sectionId: 'autoWidth',
   codeBlockId: 'autoWidthExample',
-  title: 'Auto Width',
+  title: 'Auto balls Width',
   description: 'Add any number of auto sizing columns to a row. Let the grid figure it out.',
   hasLink: true,
-  href: '/classes',
+  href: '/views/classes.html',
   linkContent: 'See all classes'
 }, {
   sectionId: 'alignment',
@@ -359,7 +356,7 @@ var overviewCollection = [{
   title: 'Alignment',
   description: 'Add classes to align elements to the start or end of a row as well as the top, bottom, or center of a column.',
   hasLink: true,
-  href: '/classes',
+  href: '/views/classes.html',
   linkContent: 'See all classes'
 }, {
   sectionId: 'distribution',
@@ -367,7 +364,7 @@ var overviewCollection = [{
   title: 'Distribution',
   description: 'Add classes to distribute the contents of a row or column.',
   hasLink: true,
-  href: '/classes',
+  href: '/views/classes.html',
   linkContent: 'See all classes'
 }, {
   sectionId: 'reorder',
@@ -375,7 +372,7 @@ var overviewCollection = [{
   title: 'Reordering',
   description: 'Add classes to reorder columns.',
   hasLink: true,
-  href: '/classes',
+  href: '/views/classes.html',
   linkContent: 'See all classes'
 }, {
   sectionId: 'reverse',
@@ -383,7 +380,7 @@ var overviewCollection = [{
   title: 'Reversing',
   description: 'Add a class to reverse columns or column content.',
   hasLink: true,
-  href: '/classes',
+  href: '/views/classes.html',
   linkContent: 'See all classes'
 }, {
   sectionId: 'eqHeight',
@@ -391,7 +388,7 @@ var overviewCollection = [{
   title: 'Column Height Equalizer',
   description: 'By default, the .row class overrides flexbox\'s natural stretching of column height, allowing for custom horizontal alignment of row contents. The .eq-height row utility class applies the stretch behavior back to the columns, giving the developer control of the behavior.',
   hasLink: true,
-  href: '/classes',
+  href: '/views/classes.html',
   linkContent: 'See all classes'
 }, {
   sectionId: 'nested',
@@ -399,7 +396,7 @@ var overviewCollection = [{
   title: 'Nested Grids',
   description: 'Nest grids inside grids inside grids.',
   hasLink: true,
-  href: '/classes',
+  href: '/views/classes.html',
   linkContent: 'See all classes'
 }, {
   sectionId: 'visibility',
@@ -407,15 +404,15 @@ var overviewCollection = [{
   title: 'Visibility',
   description: 'Visibility classes allow for responsive showing and hiding of content.',
   hasLink: true,
-  href: '/classes',
-  linkContent: 'See the full list of classes'
+  href: '/views/classes.html',
+  linkContent: 'See all classes'
 }, {
   sectionId: 'variables',
   codeBlockId: 'variablesExample',
   title: 'Variables',
   description: 'Customizable Sass variables allow you to create a grid and responsive framework to meet your needs. You can easily change the number of columns in your grid from the default 12. Update your breakpoint ranges by adjusting these variables and all of the media queries, classes and mixins will update accordingly.',
   hasLink: true,
-  href: '/variables',
+  href: '/views/variables.html',
   linkContent: 'See all variables'
 }, {
   sectionId: 'mixins',
@@ -423,8 +420,8 @@ var overviewCollection = [{
   title: 'Mixins',
   description: 'Mixins are available for every Sass Flexbox Grid set of delarations.',
   hasLink: true,
-  href: '/mixins',
-  linkContent: 'See the full list of mixins'
+  href: '/views/mixins.html',
+  linkContent: 'See all mixins'
 }];
 
 module.exports = overviewCollection;
@@ -537,41 +534,5 @@ var setMarkedOptions = function setMarkedOptions() {
 };
 
 module.exports = setMarkedOptions;
-
-},{}],12:[function(require,module,exports){
-'use strict';
-
-var root = null,
-    useHash = false,
-    router = new Navigo(root, useHash),
-    $allViews = $('[id|="view"]'),
-    $homeView = $('#view-home'),
-    $classesView = $('#view-classes'),
-    $mixinsView = $('#view-mixins'),
-    $variablesView = $('#view-variables');
-
-var replaceView = function replaceView($view) {
-  $allViews.hide();
-  $view.show();
-};
-
-var customRouter = function customRouter() {
-  return router.on({
-    'classes': function classes() {
-      replaceView($classesView);
-    },
-    'variables': function variables() {
-      replaceView($variablesView);
-    },
-    'mixins': function mixins() {
-      replaceView($mixinsView);
-    },
-    '*': function _() {
-      replaceView($homeView);
-    }
-  }).resolve();
-};
-
-module.exports = customRouter;
 
 },{}]},{},[1]);

@@ -3,7 +3,7 @@ var mixinsCollection = [
     sectionId: 'rowMixins',
     codeBlockId: 'rowMixinsExample',
     title: 'Row Mixins',
-    description: 'Establish a container as a row and customize.',
+    description: 'Set a container as a row and customize.',
     hasLink: false,
     href: '',
     linkContent: ''
@@ -12,7 +12,7 @@ var mixinsCollection = [
     sectionId: 'colMixins',
     codeBlockId: 'colMixinsExample',
     title: 'Column Mixins',
-    description: 'Establish a container as a column and customize.',
+    description: 'Set a container as a column and customize.',
     hasLink: false,
     href: '',
     linkContent: ''

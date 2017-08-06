@@ -1,4 +1,8 @@
 {
+  "name": "sass-flexbox",
+  "version": "0.0.1",
+  "description": "A responsive sass grid library built with flexbox",
+  "main": "app.js",
   "private": true,
   "engines": {
     "node": ">=4"
@@ -16,6 +20,7 @@
     "browser-sync": "^2.2.1",
     "browserify": "^13.1.1",
     "del": "^1.1.1",
+    "express": "^4.14.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.1",
     "gulp-babel": "^6.1.1",
@@ -56,5 +61,6 @@
         "single"
       ]
     }
-  }
+  },
+  "dependencies": {}
 }

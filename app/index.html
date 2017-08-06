@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sass Flexbox Grid</title>
 
+    <script src="https://use.fontawesome.com/e00da74127.js"></script>
     <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-icon-72x72.png">
@@ -27,7 +28,6 @@
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -74,13 +74,13 @@
           <a href="/">Overview</a>
         </li>
         <li>
-          <a href="/classes">Classes</a>
+          <a href="/views/classes.html">Classes</a>
         </li>
         <li>
-          <a href="/variables">Variables</a>
+          <a href="/views/variables.html">Variables</a>
         </li>
         <li>
-          <a href="/mixins">Mixins</a>
+          <a href="/views/mixins.html">Mixins</a>
         </li>
       </ul>
     </div>
@@ -291,54 +291,6 @@
       </section>
     </div>
 
-    <div id="view-classes">
-      <header>
-        <div class="row center-xs content-block">
-          <div class="col-xs-12 col-md-8">
-            <h1>Classes</h1>
-            <p>
-              Sass Flexbox Grid provides a library of utility classes for defining rows, columns and visibility. Using flexbox's powerful features, you can easily create dynamic layouts.
-            </p>
-          </div>
-        </div>
-      </header>
-      <section id="rowClasses"></section>
-      <section id="colClasses"></section>
-      <section id="visClasses"></section>
-    </div>
-
-    <div id="view-variables">
-      <header>
-        <div class="row center-xs content-block">
-          <div class="col-xs-12 col-md-8">
-            <h1>Variables</h1>
-            <p>
-              Customizable Sass variables allow you to create a grid and responsive framework to meet your needs.
-            </p>
-          </div>
-        </div>
-      </header>
-      <section id="gridVars"></section>
-      <section id="breakpointVars"></section>
-    </div>
-
-    <div id="view-mixins">
-      <header>
-        <div class="row center-xs content-block">
-          <div class="col-xs-12 col-md-8">
-            <h1>Mixins</h1>
-            <p>
-              Mixins are available for every Sass Flexbox Grid declaration.
-            </p>
-          </div>
-        </div>
-      </header>
-      <section id="rowMixins"></section>
-      <section id="colMixins"></section>
-      <section id="arrangeMixins"></section>
-      <section id="visibilityMixins"></section>
-    </div>
-
     <footer id="footerSection">
       <div class="row content-block">
         <ul>
@@ -382,13 +334,12 @@
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/marked/lib/marked.js"></script>
-    <script src="/bower_components/navigo/lib/navigo.js"></script>
     <script src="/bower_components/handlebars/handlebars.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js scripts/main.js -->
-    <script src="scripts/bundle.js"></script>
+    <script src="/scripts/bundle.js"></script>
     <!-- endbuild -->
   </body>
 </html>

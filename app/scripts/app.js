@@ -1,4 +1,4 @@
-import customRouter from './router.js';
+// import customRouter from './router.js';
 import setMarkedOptions from './marked.js';
 import mainObj from './main.js';
 import examplesObj from './content/examples.js';
@@ -36,7 +36,7 @@ $(function() {
 
   classesCollection.forEach( makeFeatureDetail );
 
-  customRouter();
+  // customRouter();
 
   var markedSection = function(obj) {
     $.each(obj, function(key, value) {
@@ -58,8 +58,8 @@ $(function() {
     $('#menu').hide();
   })
 
-  $('#menu a').on('click', function() {
-    event.stopPropagation();
-  })
+  // $('#menu a').on('click', function() {
+  //   event.stopPropagation();
+  // })
 
 });
