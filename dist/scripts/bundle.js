@@ -345,7 +345,7 @@ var overviewCollection = [{
 }, {
   sectionId: 'autoWidth',
   codeBlockId: 'autoWidthExample',
-  title: 'Auto balls Width',
+  title: 'Auto Width',
   description: 'Add any number of auto sizing columns to a row. Let the grid figure it out.',
   hasLink: true,
   href: '/views/classes.html',
