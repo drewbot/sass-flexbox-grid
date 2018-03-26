@@ -18,10 +18,12 @@
   @include row-auto-height();
 }
 
+.row.flex-column {
+  flex-direction: column;
+}
+
 .col {
-  flex-grow: 1;
-  flex-basis: 0;
-  max-width: 100%;
+  @include col();
 }
 
 .col.reverse {
@@ -31,8 +33,29 @@
 .first {
   order: -1;
 }
+
 .last {
   order: 1;
+}
+
+.align-start {
+  align-self: flex-start;
+}
+
+.align-end {
+  align-self: flex-end;
+}
+
+.align-center {
+  align-self: center;
+}
+
+.align-baseline {
+  align-self: baseline;
+}
+
+.align-stretch {
+    align-self: stretch;
 }
 
 // Mixin to run inside of for loop - creates col/breakpoint classes * Not for developer use *
@@ -41,11 +64,13 @@
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
+    padding: $gutter;
   }
   @for $i from 1 through $grid-columns {
     .col-#{$thisPrefix}-#{$i} {
       flex-basis: 100% / $grid-columns * $i;
       max-width: 100% / $grid-columns * $i;
+      padding: $gutter;
     }
     .col-#{$thisPrefix}-offset-#{$i} {
       margin-left: 100% / $grid-columns * $i;
@@ -104,4 +129,12 @@
       @include col-factory($thisPrefix);
     }
   }
+}
+
+.col-gutter-lr {
+    padding: 0 $gutter;
+}
+
+.col-no-gutter {
+    padding: 0;
 }

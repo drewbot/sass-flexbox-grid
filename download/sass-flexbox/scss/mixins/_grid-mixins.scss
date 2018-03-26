@@ -1,13 +1,17 @@
-@mixin row() {
+@import "../../variables/main.scss";
+
+@mixin row($full-width: "false") {
   margin: 0 auto;
   width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  // Overrides flexbox's default behavior of making all children equal height
-  align-items: flex-start; // If this was not in place it would require two classes to make a row full of unequal height columns aligned top, middle, bottom
-  @if type-of($content-well-max-width) == number and $content-well-max-width != 0 {
+  // // Overrides flexbox's default behavior of making all children equal height
+  // align-items: flex-start; // If this was not in place it would require two classes to make a row full of unequal height columns aligned top, middle, bottom
+  @if type-of($content-well-max-width) == number and $content-well-max-width != 0 and $full-width == "false"{
     max-width: $content-well-max-width;
   }
 }
@@ -37,6 +41,7 @@
     } @else {
       flex-basis: 100% / $grid-columns * $col-number;
       max-width: 100% / $grid-columns * $col-number;
+      padding: $gutter;
     }
   // If no col number is passed then arg is set to "auto" by default
   // "auto" mode fills the horizontal space with evenly sized containers
@@ -44,6 +49,7 @@
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
+    padding: $gutter;
   } @else {
     @warn "Column number argument must either be the string 'auto' or a number greater than 0 and less than or equal to total number of columns in the grid (#{$grid-columns})";
   }

@@ -1,19 +1,19 @@
 
 .show {
-  display: block;
+  display: block !important;
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 // Mixin to run inside of for loop - creates visibility classes * Not for developer use *
 @mixin vis-factory($thisPrefix) {
   .show-#{$thisPrefix} {
-    display: block;
+    display: block !important;
   }
   .hide-#{$thisPrefix} {
-    display: none;
+    display: none !important;
   }
 } // Mixin to run inside of for loop - creates visibility classes * Not for developer use *
 
