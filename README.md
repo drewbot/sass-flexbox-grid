@@ -7,7 +7,6 @@ Enhancements include:
 - Additional 'XL' breakpoint
 - Sass variables and mixins
 - Customizable grid
-- No gutters
 
 ## Installation
 ```
