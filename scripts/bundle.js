@@ -330,7 +330,7 @@ var overviewCollection = [{
   sectionId: 'responsive',
   codeBlockId: 'responsiveExample',
   title: 'Responsive and Fluid',
-  description: 'Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths. Percent based widths allow fluid resizing of columns and rows.',
+  description: 'Responsive modifiers let you define column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths. Percent based widths allow fluid resizing of columns and rows.',
   hasLink: true,
   href: '/views/classes.html',
   linkContent: 'See all classes'
