@@ -12,7 +12,7 @@ Enhancements include:
 
 ### npm
 ```
-npm install @drewbot/sass-flexbox-grid@0.0.1 --save
+npm install @drewbot/sass-flexbox-grid --save
 ```
 Then link to your preferred CSS or Sass File:
 
