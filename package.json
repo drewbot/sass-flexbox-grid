@@ -1,5 +1,5 @@
 {
-  "name": "sass-flexbox-grid",
+  "name": "@drewbot/sass-flexbox-grid",
   "version": "0.0.1",
   "description": "A responsive sass grid library built with flexbox",
   "license": "MIT",
