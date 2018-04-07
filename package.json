@@ -1,9 +1,10 @@
 {
-  "name": "sass-flexbox",
+  "name": "sass-flexbox-grid",
   "version": "0.0.1",
   "description": "A responsive sass grid library built with flexbox",
+  "license": "MIT",
+  "author": "Drew Botka",
   "main": "app.js",
-  "private": true,
   "engines": {
     "node": ">=4"
   },
