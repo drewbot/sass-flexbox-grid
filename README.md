@@ -1,4 +1,4 @@
-#Sass Flexbox Grid
+# Sass Flexbox Grid
 ## Overview
 A responsive grid system based on [Flexbox Grid](http://flexboxgrid.com/ "flexbox-grid") and the flex property, re-written in Sass, edited and expanded upon.
 
