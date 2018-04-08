@@ -330,14 +330,14 @@ gulp.task('buildbundle', function(){
     // Sass Flexbox library build tasks //
 ////////////////////////////////////////////////////
 
-// Clean download folder
-gulp.task('cleanLibrary', del.bind(null, ['download/sass-flexbox/**/*']));
+// Clean public folder
+gulp.task('cleanLibrary', del.bind(null, ['public/sass-flexbox/**/*']));
 
-// Copy sass library to download folder
+// Copy sass library to public folder
 gulp.task('copyLibrary', () => {
   return gulp.src('app/styles/library/**/*.scss')
     .pipe($.plumber())
-    .pipe(gulp.dest('download/sass-flexbox/scss'))
+    .pipe(gulp.dest('public/sass-flexbox/scss'))
 });
 
 /// process scss and compile library for public use
@@ -352,23 +352,23 @@ gulp.task('compileLibrary', () => {
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('download/sass-flexbox'))
+    .pipe(gulp.dest('public/sass-flexbox'))
 });
 
 // Minify library for public use
 gulp.task('minifyLibrary', () => {
-  return gulp.src('download/sass-flexbox/main.css')
+  return gulp.src('public/sass-flexbox/main.css')
     .pipe($.plumber())
     .pipe(rename('main.min.css'))
     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
-    .pipe(gulp.dest('download/sass-flexbox'))
+    .pipe(gulp.dest('public/sass-flexbox'))
 });
 
 // zip library
 gulp.task('zipLibrary', () => {
-  return gulp.src('download/sass-flexbox/**/*')
+  return gulp.src('public/sass-flexbox/**/*')
   .pipe(zip('sass-flexbox.zip'))
-  .pipe(gulp.dest('download/sass-flexbox'))
+  .pipe(gulp.dest('public'))
 });
 
 // Copy, compile, minify, zip

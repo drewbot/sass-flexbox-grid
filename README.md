@@ -17,19 +17,19 @@ npm install @drewbot/sass-flexbox-grid --save
 Then link to your preferred CSS or Sass File:
 
 ####  CSS
-`/node-modules/@drewbot/sass-flexbox-grid/download/sass-flexbox/main.css`
+`node_modules/@drewbot/sass-flexbox-grid/public/sass-flexbox/main.css`
 
 
 #### CSS (minified)
-`/node-modules/@drewbot/sass-flexbox-grid/download/sass-flexbox/main.min.css`
+`node_modules/@drewbot/sass-flexbox-grid/public/sass-flexbox/main.min.css`
 
 Or copy the Sass files over to your `src` directory from the following directory:
 
-`/node-modules/@drewbot/sass-flexbox-grid/download/sass-flexbox/scss/`
+`/node_modules/@drewbot/sass-flexbox-grid/public/sass-flexbox/scss/`
 
 ### Direct download
 
-[https://github.com/drewbot/sass-flexbox-grid/raw/master/download/sass-flexbox/sass-flexbox.zip](https://github.com/drewbot/sass-flexbox-grid/raw/master/download/sass-flexbox/sass-flexbox.zip)
+[https://github.com/drewbot/sass-flexbox-grid/raw/master/public/sass-flexbox.zip](https://github.com/drewbot/sass-flexbox-grid/raw/master/public/sass-flexbox.zip)
 
 ## Dependencies
 The Sass Version simply requires The Sass library to be installed.
