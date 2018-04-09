@@ -19,13 +19,12 @@ Then link to your preferred CSS or Sass File:
 ####  CSS
 `node_modules/@drewbot/sass-flexbox-grid/public/sass-flexbox/main.css`
 
-
 #### CSS (minified)
 `node_modules/@drewbot/sass-flexbox-grid/public/sass-flexbox/main.min.css`
 
 Or copy the Sass files over to your `src` directory from the following directory:
 
-`/node_modules/@drewbot/sass-flexbox-grid/public/sass-flexbox/scss/`
+`node_modules/@drewbot/sass-flexbox-grid/public/sass-flexbox/scss`
 
 ### Direct download
 

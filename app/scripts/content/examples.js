@@ -59,14 +59,16 @@ var examplesObj = {
   </div>
   `,
   variablesExample: `
-  $grid-columns: 12;
-
-  $xs-max: 640px;
-  $sm-max: 1024px;
-  $md-max: 1440px;
-  $lg-max: 1920px;
-
-  $content-well-max-width: 2400px;
+  $grid-columns: 12; // Set number of columns in the grid
+  ${indent}
+  $xs-max: 40rem; // Set xs breakpoint's max width
+  $sm-max: 64rem; // Set sm breakpoint's max width
+  $md-max: 90rem; // Set md breakpoint's max width
+  $lg-max: 120rem; // Set lg breakpoint's max width
+  ${indent}
+  $gutter: 1rem; // Set gutter size
+  ${indent}
+  $content-well-max-width: "none"; // Set the max-width of the content well
   `,
   mixinsExample: `
   .container {

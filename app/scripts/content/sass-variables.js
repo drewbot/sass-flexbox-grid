@@ -9,17 +9,19 @@ var sassVarsObj = {
   gridVarsExample: `
   $grid-columns: 12; // Set number of columns in the grid
   ${indent}
-  $xs-max: 640px; // Set xs breakpoint's max width
-  $sm-max: 1024px; // Set sm breakpoint's max width
-  $md-max: 1440px; // Set md breakpoint's max width
-  $lg-max: 1920px; // Set lg breakpoint's max width
+  $xs-max: 40rem; // Set xs breakpoint's max width
+  $sm-max: 64rem; // Set sm breakpoint's max width
+  $md-max: 90rem; // Set md breakpoint's max width
+  $lg-max: 120rem; // Set lg breakpoint's max width
   ${indent}
-  $sm-start: ($xs-max + 1); // Set sm breakpoint's min width
-  $md-start: ($sm-max + 1); // Set md breakpoint's min width
-  $lg-start: ($md-max + 1); // Set lg breakpoint's min width
-  $xl-start: ($lg-max + 1); // Set xl breakpoint's min width
+  $gutter: 1rem; // Set gutter size
   ${indent}
-  $content-well-max-width: 2400px; // Set the max-width of the content well
+  $content-well-max-width: "none"; // Set the max-width of the content well
+  ${indent}
+  $sm-start: ($xs-max + 1); // Generate sm breakpoint's min width
+  $md-start: ($sm-max + 1); // Generate md breakpoint's min width
+  $lg-start: ($md-max + 1); // Generate lg breakpoint's min width
+  $xl-start: ($lg-max + 1); // Generate xl breakpoint's min width
   `,
   breakpointVarsExample: `
   $breakpoint-xs-only: "only screen and (max-width: #{$xs-max})";

@@ -25,6 +25,10 @@ var _sassMixins = require('./content/sass-mixins.js');
 
 var _sassMixins2 = _interopRequireDefault(_sassMixins);
 
+var _documentationObj = require('./content/documentation-obj.js');
+
+var _documentationObj2 = _interopRequireDefault(_documentationObj);
+
 var _overview = require('./content/overview.js');
 
 var _overview2 = _interopRequireDefault(_overview);
@@ -41,6 +45,10 @@ var _classes = require('./content/classes.js');
 
 var _classes2 = _interopRequireDefault(_classes);
 
+var _documentation = require('./content/documentation.js');
+
+var _documentation2 = _interopRequireDefault(_documentation);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import customRouter from './router.js';
@@ -48,7 +56,7 @@ console.log(_main2.default.isTouchDevice() ? 'Touch Device' : 'Desktop');
 
 (0, _marked2.default)();
 
-var codeContentsArray = [_examples2.default, _sassClasses2.default, _sassVariables2.default, _sassMixins2.default];
+var codeContentsArray = [_examples2.default, _sassClasses2.default, _sassVariables2.default, _sassMixins2.default, _documentationObj2.default];
 
 $(function () {
 
@@ -69,6 +77,8 @@ $(function () {
   _mixins2.default.forEach(makeFeatureDetail);
 
   _classes2.default.forEach(makeFeatureDetail);
+
+  _documentation2.default.forEach(makeFeatureDetail);
 
   // customRouter();
 
@@ -97,7 +107,7 @@ $(function () {
   // })
 });
 
-},{"./content/classes.js":2,"./content/examples.js":3,"./content/mixins.js":4,"./content/overview.js":5,"./content/sass-classes.js":6,"./content/sass-mixins.js":7,"./content/sass-variables.js":8,"./content/variables.js":9,"./main.js":10,"./marked.js":11}],2:[function(require,module,exports){
+},{"./content/classes.js":2,"./content/documentation-obj.js":3,"./content/documentation.js":4,"./content/examples.js":5,"./content/mixins.js":6,"./content/overview.js":7,"./content/sass-classes.js":8,"./content/sass-mixins.js":9,"./content/sass-variables.js":10,"./content/variables.js":11,"./main.js":12,"./marked.js":13}],2:[function(require,module,exports){
 'use strict';
 
 var classesCollection = [{
@@ -138,6 +148,64 @@ var indent = "&nbsp;&nbsp;",
     indentQuintuple = indentQuadruple + indent,
     indentSextuple = indentQuintuple + indent;
 
+var documentationObj = {
+  npmInstallationExample: "\n  npm install @drewbot/sass-flexbox-grid --save\n  ",
+  cssInstallationExample: "\n  // Full version\n  node_modules/@drewbot/sass-flexbox-grid/public/sass-flexbox/main.css\n  // Minified version\n  node_modules/@drewbot/sass-flexbox-grid/public/sass-flexbox/main.min.css\n  ",
+  sassInstallationExample: "\n  node_modules/@drewbot/sass-flexbox-grid/public/sass-flexbox/scss\n  ",
+  variableSetupExample: "\n  // .../sass-flexbox-grid/public/sass-flexbox/scss/variables/_grid-variables.scss\n  " + indent + "\n  $grid-columns: 12; // Set number of columns in the grid\n  " + indent + "\n  $xs-max: 40rem; // Set xs breakpoint's max width\n  $sm-max: 64rem; // Set sm breakpoint's max width\n  $md-max: 90rem; // Set md breakpoint's max width\n  $lg-max: 120rem; // Set lg breakpoint's max width\n  " + indent + "\n  $gutter: 1rem; // Set gutter size\n  " + indent + "\n  $content-well-max-width: \"none\"; // Set the max-width of the content well\n  "
+};
+
+module.exports = documentationObj;
+
+},{}],4:[function(require,module,exports){
+'use strict';
+
+var documentationCollection = [{
+  sectionId: 'npmInstallation',
+  codeBlockId: 'npmInstallationExample',
+  title: 'NPM Install',
+  description: 'From the command line:',
+  hasLink: false,
+  href: 'https://www.npmjs.com/package/@drewbot/sass-flexbox-grid',
+  linkContent: 'View the NPM package webpage'
+}, {
+  sectionId: 'cssInstallation',
+  codeBlockId: 'cssInstallationExample',
+  title: 'Link to CSS',
+  description: 'Link to the full CSS file or the minified version.',
+  hasLink: false,
+  href: '',
+  linkContent: ''
+}, {
+  sectionId: 'sassInstallation',
+  codeBlockId: 'sassInstallationExample',
+  title: 'Sass Usage',
+  description: 'Copy the Sass folder over to your development directory in order to customize and preprocess on your own.',
+  hasLink: false,
+  href: '',
+  linkContent: ''
+}, {
+  sectionId: 'variableSetup',
+  codeBlockId: 'variableSetupExample',
+  title: 'Customize Your Grid',
+  description: 'If you\'re using the Sass version of the library you can udate _grid-variables.scss with your preferred number of columns, breakpoint sizes, gutter size, and content well max-width.',
+  hasLink: false,
+  href: '',
+  linkContent: ''
+}];
+
+module.exports = documentationCollection;
+
+},{}],5:[function(require,module,exports){
+"use strict";
+
+var indent = "&nbsp;&nbsp;",
+    indentDouble = indent + indent,
+    indentTriple = indentDouble + indent,
+    indentQuadruple = indentTriple + indent,
+    indentQuintuple = indentQuadruple + indent,
+    indentSextuple = indentQuintuple + indent;
+
 var examplesObj = {
   responsiveExample: "\n  <div class=\"row\">\n  " + indent + "<div class=\"col-xs-12 col-sm-8 col-md-6 col-lg-4\"></div>\n  </div>\n  ",
   offsetsExample: "\n  <div class=\"row\">\n  " + indent + "<div class=\"col-xs-offset-3 col-xs-9\"></div>\n  </div>\n  ",
@@ -147,7 +215,7 @@ var examplesObj = {
   distributionExample: "\n  <div class=\"row around-xs\">\n  " + indent + "<div class=\"col-xs-2\"></div>\n  " + indent + "<div class=\"col-xs-2\"></div>\n  " + indent + "<div class=\"col-xs-2\"></div>\n  </div>\n  ",
   reorderExample: "\n  <div class=\"row\">\n  " + indent + "<div class=\"col-xs-2\">1</div>\n  " + indent + "<div class=\"col-xs-2\">2</div>\n  " + indent + "<div class=\"col-xs-2 first-xs\">3</div>\n  " + indent + "...\n  </div>\n  ",
   reverseExample: "\n  <div class=\"row reverse\">\n  " + indent + "<div class=\"col-xs\">1</div>\n  " + indent + "<div class=\"col-xs\">2</div>\n  " + indent + "<div class=\"col-xs\">3</div>\n  </div>\n  ",
-  variablesExample: "\n  $grid-columns: 12;\n\n  $xs-max: 640px;\n  $sm-max: 1024px;\n  $md-max: 1440px;\n  $lg-max: 1920px;\n\n  $content-well-max-width: 2400px;\n  ",
+  variablesExample: "\n  $grid-columns: 12; // Set number of columns in the grid\n  " + indent + "\n  $xs-max: 40rem; // Set xs breakpoint's max width\n  $sm-max: 64rem; // Set sm breakpoint's max width\n  $md-max: 90rem; // Set md breakpoint's max width\n  $lg-max: 120rem; // Set lg breakpoint's max width\n  " + indent + "\n  $gutter: 1rem; // Set gutter size\n  " + indent + "\n  $content-well-max-width: \"none\"; // Set the max-width of the content well\n  ",
   mixinsExample: "\n  .container {\n  " + indent + "@include row();\n  " + indent + ".box {\n  " + indentDouble + "@inlcude col(6);\n  " + indentDouble + "@inlcude col(md, 3);\n  " + indent + "}\n  " + indent + ".extras {\n  " + indentDouble + "@include hide(lg);\n  " + indent + "}\n  }\n  ",
   visibilityExample: "\n  <div class=\"row\">\n  " + indent + "<div class=\"col hide-md\"></div>\n  " + indent + "<div class=\"col hide-xs show-md\"></div>\n  " + indent + "<div class=\"col\"></div>\n  " + indent + "<div class=\"col\"></div>\n  " + indent + "<div class=\"col\"></div>\n  " + indent + "<div class=\"col hide-sm-only\"></div>\n  </div>\n  ",
   eqHeightExample: "\n  <div class=\"row eq-height\">\n  " + indent + "<div class=\"col\">Content of varying height</div>\n  " + indent + "<div class=\"col\">Content of varying height</div>\n  </div>\n  "
@@ -284,7 +352,7 @@ module.exports = examplesObj;
 //   }
 // ]
 
-},{}],4:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 'use strict';
 
 var mixinsCollection = [{
@@ -323,7 +391,7 @@ var mixinsCollection = [{
 
 module.exports = mixinsCollection;
 
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 var overviewCollection = [{
@@ -426,7 +494,7 @@ var overviewCollection = [{
 
 module.exports = overviewCollection;
 
-},{}],6:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 "use strict";
 
 var indent = "&nbsp;&nbsp;",
@@ -444,7 +512,7 @@ var sassClassesObj = {
 
 module.exports = sassClassesObj;
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 "use strict";
 
 var indent = "&nbsp;&nbsp;",
@@ -463,7 +531,7 @@ var sassMixinsObj = {
 
 module.exports = sassMixinsObj;
 
-},{}],8:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 "use strict";
 
 var indent = "&nbsp;&nbsp;",
@@ -474,13 +542,13 @@ var indent = "&nbsp;&nbsp;",
     indentSextuple = indentQuintuple + indent;
 
 var sassVarsObj = {
-  gridVarsExample: "\n  $grid-columns: 12; // Set number of columns in the grid\n  " + indent + "\n  $xs-max: 640px; // Set xs breakpoint's max width\n  $sm-max: 1024px; // Set sm breakpoint's max width\n  $md-max: 1440px; // Set md breakpoint's max width\n  $lg-max: 1920px; // Set lg breakpoint's max width\n  " + indent + "\n  $sm-start: ($xs-max + 1); // Set sm breakpoint's min width\n  $md-start: ($sm-max + 1); // Set md breakpoint's min width\n  $lg-start: ($md-max + 1); // Set lg breakpoint's min width\n  $xl-start: ($lg-max + 1); // Set xl breakpoint's min width\n  " + indent + "\n  $content-well-max-width: 2400px; // Set the max-width of the content well\n  ",
+  gridVarsExample: "\n  $grid-columns: 12; // Set number of columns in the grid\n  " + indent + "\n  $xs-max: 40rem; // Set xs breakpoint's max width\n  $sm-max: 64rem; // Set sm breakpoint's max width\n  $md-max: 90rem; // Set md breakpoint's max width\n  $lg-max: 120rem; // Set lg breakpoint's max width\n  " + indent + "\n  $gutter: 1rem; // Set gutter size\n  " + indent + "\n  $content-well-max-width: \"none\"; // Set the max-width of the content well\n  " + indent + "\n  $sm-start: ($xs-max + 1); // Generate sm breakpoint's min width\n  $md-start: ($sm-max + 1); // Generate md breakpoint's min width\n  $lg-start: ($md-max + 1); // Generate lg breakpoint's min width\n  $xl-start: ($lg-max + 1); // Generate xl breakpoint's min width\n  ",
   breakpointVarsExample: "\n  $breakpoint-xs-only: \"only screen and (max-width: #{$xs-max})\";\n  $breakpoint-sm-up: \"only screen and (min-width: #{$sm-start})\";\n  $breakpoint-sm-only: \"only screen and (min-width: #{$sm-start}) and (max-width: #{$sm-max})\";\n  $breakpoint-md-up: \"only screen and (min-width: #{$md-start})\";\n  $breakpoint-md-only: \"only screen and (min-width: #{$md-start}) and (max-width: #{$md-max})\";\n  $breakpoint-lg-up: \"only screen and (min-width: #{$lg-start})\";\n  $breakpoint-lg-only: \"only screen and (min-width: #{$lg-start}) and (max-width: #{$lg-max})\";\n  $breakpoint-xl-up: \"only screen and (min-width: #{$xl-start})\";\n  "
 };
 
 module.exports = sassVarsObj;
 
-},{}],9:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 var variablesCollection = [{
@@ -503,7 +571,7 @@ var variablesCollection = [{
 
 module.exports = variablesCollection;
 
-},{}],10:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 var mainObj = {
@@ -523,7 +591,7 @@ var mainObj = {
 
 module.exports = mainObj;
 
-},{}],11:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 "use strict";
 
 var setMarkedOptions = function setMarkedOptions() {
@@ -535,6 +603,6 @@ var setMarkedOptions = function setMarkedOptions() {
 
 module.exports = setMarkedOptions;
 
-},{}]},{},[1]);
+},{}]},{},[1])
 
 //# sourceMappingURL=../../maps/bundle.js.map

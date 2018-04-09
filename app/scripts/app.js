@@ -5,16 +5,18 @@ import examplesObj from './content/examples.js';
 import sassClassesObj from './content/sass-classes.js';
 import sassVarsObj from './content/sass-variables.js';
 import sassMixinsObj from './content/sass-mixins.js';
+import documentationObj from './content/documentation-obj.js'
 import overviewCollection from './content/overview.js';
 import variablesCollection from './content/variables.js';
 import mixinsCollection from './content/mixins.js';
 import classesCollection from './content/classes.js';
+import documentationCollection from './content/documentation.js'
 
 console.log(mainObj.isTouchDevice() ? 'Touch Device': 'Desktop');
 
 setMarkedOptions();
 
-var codeContentsArray = [examplesObj, sassClassesObj, sassVarsObj, sassMixinsObj];
+var codeContentsArray = [examplesObj, sassClassesObj, sassVarsObj, sassMixinsObj, documentationObj];
 
 $(function() {
 
@@ -35,6 +37,8 @@ $(function() {
   mixinsCollection.forEach( makeFeatureDetail );
 
   classesCollection.forEach( makeFeatureDetail );
+
+  documentationCollection.forEach( makeFeatureDetail );
 
   // customRouter();
 
