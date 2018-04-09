@@ -3,6 +3,12 @@
   display: block !important;
 }
 
+.row.show {
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
 .hide {
   display: none !important;
 }
@@ -11,6 +17,11 @@
 @mixin vis-factory($thisPrefix) {
   .show-#{$thisPrefix} {
     display: block !important;
+  }
+  .row.show-#{$thisPrefix} {
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
   }
   .hide-#{$thisPrefix} {
     display: none !important;

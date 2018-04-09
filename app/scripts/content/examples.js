@@ -93,7 +93,7 @@ var examplesObj = {
   </div>
   `,
   eqHeightExample: `
-  <div class="row eq-height">
+  <div class="row">
   ${indent}<div class="col">Content of varying height</div>
   ${indent}<div class="col">Content of varying height</div>
   </div>

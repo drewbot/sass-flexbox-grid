@@ -30,7 +30,7 @@ var documentationCollection = [
     sectionId: 'variableSetup',
     codeBlockId: 'variableSetupExample',
     title: 'Customize Your Grid',
-    description: 'If you\'re using the Sass version of the library you can udate _grid-variables.scss with your preferred number of columns, breakpoint sizes, gutter size, and content well max-width.',
+    description: 'If you\'re using the Sass version of the library you can update _grid-variables.scss with your preferred number of columns, breakpoint sizes, gutter size, and content well max-width.',
     hasLink: false,
     href: '',
     linkContent: ''

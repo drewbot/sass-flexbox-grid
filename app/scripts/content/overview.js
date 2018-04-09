@@ -3,7 +3,7 @@ var overviewCollection = [
     sectionId: 'responsive',
     codeBlockId: 'responsiveExample',
     title: 'Responsive and Fluid',
-    description: 'Responsive modifiers let you define column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths. Percent based widths allow fluid resizing of columns and rows.',
+    description: 'Responsive modifiers let you define column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths. Use the row class to define an outer row of columns and then place columns inside of rows.',
     hasLink: true,
     href: '/views/classes.html',
     linkContent: 'See all classes'
@@ -66,7 +66,7 @@ var overviewCollection = [
     sectionId: 'eqHeight',
     codeBlockId: 'eqHeightExample',
     title: 'Column Height Equalizer',
-    description: 'By default, the .row class overrides flexbox\'s natural stretching of column height, allowing for custom horizontal alignment of row contents. The .eq-height row utility class applies the stretch behavior back to the columns, giving the developer control of the behavior.',
+    description: 'By default, flexbox stretches each flex item to match the height of it\'s sibling. The .natural-height row utility class will make each column\'s height match it\'s content, giving the developer control of the behavior.',
     hasLink: true,
     href: '/views/classes.html',
     linkContent: 'See all classes'

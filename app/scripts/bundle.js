@@ -188,7 +188,7 @@ var documentationCollection = [{
   sectionId: 'variableSetup',
   codeBlockId: 'variableSetupExample',
   title: 'Customize Your Grid',
-  description: 'If you\'re using the Sass version of the library you can udate _grid-variables.scss with your preferred number of columns, breakpoint sizes, gutter size, and content well max-width.',
+  description: 'If you\'re using the Sass version of the library you can update _grid-variables.scss with your preferred number of columns, breakpoint sizes, gutter size, and content well max-width.',
   hasLink: false,
   href: '',
   linkContent: ''
@@ -218,7 +218,7 @@ var examplesObj = {
   variablesExample: "\n  $grid-columns: 12; // Set number of columns in the grid\n  " + indent + "\n  $xs-max: 40rem; // Set xs breakpoint's max width\n  $sm-max: 64rem; // Set sm breakpoint's max width\n  $md-max: 90rem; // Set md breakpoint's max width\n  $lg-max: 120rem; // Set lg breakpoint's max width\n  " + indent + "\n  $gutter: 1rem; // Set gutter size\n  " + indent + "\n  $content-well-max-width: \"none\"; // Set the max-width of the content well\n  ",
   mixinsExample: "\n  .container {\n  " + indent + "@include row();\n  " + indent + ".box {\n  " + indentDouble + "@inlcude col(6);\n  " + indentDouble + "@inlcude col(md, 3);\n  " + indent + "}\n  " + indent + ".extras {\n  " + indentDouble + "@include hide(lg);\n  " + indent + "}\n  }\n  ",
   visibilityExample: "\n  <div class=\"row\">\n  " + indent + "<div class=\"col hide-md\"></div>\n  " + indent + "<div class=\"col hide-xs show-md\"></div>\n  " + indent + "<div class=\"col\"></div>\n  " + indent + "<div class=\"col\"></div>\n  " + indent + "<div class=\"col\"></div>\n  " + indent + "<div class=\"col hide-sm-only\"></div>\n  </div>\n  ",
-  eqHeightExample: "\n  <div class=\"row eq-height\">\n  " + indent + "<div class=\"col\">Content of varying height</div>\n  " + indent + "<div class=\"col\">Content of varying height</div>\n  </div>\n  "
+  eqHeightExample: "\n  <div class=\"row\">\n  " + indent + "<div class=\"col\">Content of varying height</div>\n  " + indent + "<div class=\"col\">Content of varying height</div>\n  </div>\n  "
 };
 
 module.exports = examplesObj;
@@ -398,7 +398,7 @@ var overviewCollection = [{
   sectionId: 'responsive',
   codeBlockId: 'responsiveExample',
   title: 'Responsive and Fluid',
-  description: 'Responsive modifiers let you define column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths. Percent based widths allow fluid resizing of columns and rows.',
+  description: 'Responsive modifiers let you define column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths. Use the row class to define an outer row of columns and then place columns inside of rows.',
   hasLink: true,
   href: '/views/classes.html',
   linkContent: 'See all classes'
@@ -454,7 +454,7 @@ var overviewCollection = [{
   sectionId: 'eqHeight',
   codeBlockId: 'eqHeightExample',
   title: 'Column Height Equalizer',
-  description: 'By default, the .row class overrides flexbox\'s natural stretching of column height, allowing for custom horizontal alignment of row contents. The .eq-height row utility class applies the stretch behavior back to the columns, giving the developer control of the behavior.',
+  description: 'By default, flexbox stretches each flex item to match the height of it\'s sibling. The .natural-height row utility class will make each column\'s height match it\'s content, giving the developer control of the behavior.',
   hasLink: true,
   href: '/views/classes.html',
   linkContent: 'See all classes'
@@ -505,9 +505,9 @@ var indent = "&nbsp;&nbsp;",
     indentSextuple = indentQuintuple + indent;
 
 var sassClassesObj = {
-  rowClassesExample: "\n  .row\n  .reverse\n  .eq-height\n  .auto-height\n  .start\n  .center\n  .end\n  .top\n  .middle\n  .bottom\n  .around\n  .between\n  ",
-  colClassesExample: "\n  .col\n  .col-xs\n  .col-sm\n  .col-md\n  .col-lg\n  .col-xl\n  .col-xs-<column number>\n  .col-sm-<column number>\n  .col-md-<column number>\n  .col-lg-<column number>\n  .col-xl-<column number>\n  .col-xs-offset-<column number>\n  .col-sm-offset-<column number>\n  .col-md-offset-<column number>\n  .col-lg-offset-<column number>\n  .col-xl-offset-<column number>\n  .first\n  .first-xs\n  .first-sm\n  .first-md\n  .first-lg\n  .first-xl\n  .last\n  .last-xs\n  .last-sm\n  .last-md\n  .last-lg\n  .last-xl\n  ",
-  visClassesExample: "\n  .show\n  .show-xs\n  .show-xs-only\n  .show-sm\n  .show-sm-only\n  .show-md\n  .show-md-only\n  .show-lg\n  .show-lg-only\n  .show-xl\n  .hide\n  .hide-xs\n  .hide-xs-only\n  .hide-sm\n  .hide-sm-only\n  .hide-md\n  .hide-md-only\n  .hide-lg\n  .hide-lg-only\n  .hide-xl\n  "
+  rowClassesExample: "\n  .row  // Define and element as a row\n  .reverse  // Reverse the order of the row's children\n  .natural-height  // Row children heights match their contents\n  .flex-column  // Arrange row children vertically\n  .start  // Align row children to the beginning of the row\n  .center  // Align row children to the center of the row\n  .end  // Align row children to the end of the row\n  .top  // Align row children to the top of the row\n  .middle  // Align row children to the middle of the row\n  .bottom  // Align row children to the bottom of the row\n  .around  // Apply equal space around each row child\n  .between  // Apply equal space between each row child\n  ",
+  colClassesExample: "\n  .col  // Define a column with auto-sizing\n  .col-xs  // Define a column with auto-sizing on XS and up\n  .col-sm  // Define a column with auto-sizing on SM and up\n  .col-md  // Define a column with auto-sizing on MD and up\n  .col-lg  // Define a column with auto-sizing on LG and up\n  .col-xl  // Define a column with auto-sizing on XL and up\n  .col-xs-<column number>  // Define a column's number width on XS and up\n  .col-sm-<column number>  // Define a column's number width on SM and up\n  .col-md-<column number>  // Define a column's number width on MD and up\n  .col-lg-<column number>  // Define a column's number width on LG and up\n  .col-xl-<column number>  // Define a column's number width on XL and up\n  .col-xs-offset-<column number>  // Offset by a number width on XS and up\n  .col-sm-offset-<column number>  // Offset by a number width on SM and up\n  .col-md-offset-<column number>  // Offset by a number width on MD and up\n  .col-lg-offset-<column number>  // Offset by a number width on LG and up\n  .col-xl-offset-<column number>  // Offset by a number width on XL and up\n  .first  // Make a column first in order within a row\n  .first-xs  // Make a column first in order on XS and up\n  .first-sm  // Make a column first in order on SM and up\n  .first-md  // Make a column first in order on MD and up\n  .first-lg  // Make a column first in order on LG and up\n  .first-xl  // Make a column first in order on XL and up\n  .last  // Make a column last in order on XS and up\n  .last-xs  // Make a column last in order on XS and up\n  .last-sm  // Make a column last in order on SM and up\n  .last-md  // Make a column last in order on MD and up\n  .last-lg  // Make a column last in order on LG and up\n  .last-xl  // Make a column last in order on XL and up\n  ",
+  visClassesExample: "\n  .show  // Show an element\n  .show-xs  // Show an element on XS and up\n  .show-xs-only  // Show an element on XS only\n  .show-sm  // Show an element on SM and up\n  .show-sm-only  // Show an element on SM only\n  .show-md  // Show an element on MD and up\n  .show-md-only  // Show an element on MD only\n  .show-lg  // Show an element on LG and up\n  .show-lg-only  // Show an element on LG only\n  .show-xl  // Show an element on XL screens\n  .hide  // Hide an element\n  .hide-xs  // Hide an element on XS and up\n  .hide-xs-only  // Hide an element on XS only\n  .hide-sm  // Hide an element on SM and up\n  .hide-sm-only  // Hide an element on SM only\n  .hide-md  // Hide an element on MD and up\n  .hide-md-only  // Hide an element on MD only\n  .hide-lg  // Hide an element on LG and up\n  .hide-lg-only  // Hide an element on LG only\n  .hide-xl  // Hide an element on XL screens\n  "
 };
 
 module.exports = sassClassesObj;
@@ -523,10 +523,10 @@ var indent = "&nbsp;&nbsp;",
     indentSextuple = indentQuintuple + indent;
 
 var sassMixinsObj = {
-  rowMixinsExample: "\n  @include row();\n  @include row-reverse();\n  @include row-eq-height();\n  @include row-auto-height();\n  ",
-  colMixinsExample: "\n  @include col(<breakpoint prefix>, <number of columns>);\n  " + indent + "// no breakpoint arg = xs-<number of columns>\n  " + indent + "@include col(<number of columns>);\n  " + indent + "// no args =  auto-width column at the xs breakpoint\n  " + indent + "@include col();\n  @include col-offset(<breakpoint prefix>, <number of columns>);\n  @include col-reverse();\n  ",
-  arrangeMixinsExample: "\n  // apply to a row to arrange descendants\n  @include start(<breakpoint prefix>);\n  @include center(<breakpoint prefix>);\n  @include end(<breakpoint prefix>);\n  @include top(<breakpoint prefix>);\n  @include middle(<breakpoint prefix>);\n  @include bottom(<breakpoint prefix>);\n  @include around(<breakpoint prefix>);\n  @include between(<breakpoint prefix>);\n  " + indent + "\n  // Apply to a column to arrange this element\n  @include first(<breakpoint prefix>);\n  @include last(<breakpoint prefix>);\n  ",
-  visibilityMixinsExample: "\n  @include show(<breakpoint range prefix>);\n  @include hide(<breakpoint range prefix>);\n  "
+  rowMixinsExample: "\n  row(); // Define and element as a row\n  row-reverse();  // Reverse the order of the row's children\n  row-natural-height();  // Row children heights match their contents\n  row-flex-column();  // Row children arrange vertically\n  ",
+  colMixinsExample: "\n  //  Pass in breakpoint and number arguments to define a column\n  col(<breakpoint prefix>, <number of columns>);\n  " + indent + "\n  //  No breakpoint arg = xs-<number of columns>\n  col(<number of columns>);\n  " + indent + "\n  //  No args =  auto-width column at the xs breakpoint\n  col();\n  " + indent + "\n  //  Pass in breakpoint and number arguments to offset a column\n  col-offset(<breakpoint prefix>, <number of columns>);\n  " + indent + "\n  //  Reverse the order of an auto width col\n  col-reverse();\n  ",
+  arrangeMixinsExample: "\n  // apply to a row to arrange descendants\n  start(<breakpoint prefix>);  // Align to the beginning of the row\n  center(<breakpoint prefix>);  // Align to the center of the row\n  end(<breakpoint prefix>);  // Align to the end of the row\n  top(<breakpoint prefix>);  // Align to the top of the row\n  middle(<breakpoint prefix>);  // Align to the middle of the row\n  bottom(<breakpoint prefix>);  // Align to the bottom of the row\n  around(<breakpoint prefix>);  // Apply equal space around each row child\n  between(<breakpoint prefix>);  // Apply equal space between each row child\n  " + indent + "\n  // Apply to a column to arrange this element\n  first(<breakpoint prefix>);  // Make a column first in order within a row\n  last(<breakpoint prefix>);  // Make a column last in order on XS and up\n  ",
+  visibilityMixinsExample: "\n  show(<breakpoint range prefix>);  // Show an element\n  hide(<breakpoint range prefix>);  // Hide an element\n  "
 };
 
 module.exports = sassMixinsObj;
