@@ -38,3 +38,14 @@ Plain CSS and minified CSS versions can be used with no other dependencies.
 ## Mobile First
 
 Use Sass Flexbox Grid's mobile-first media queries and grid classes. All styles should first be declared at small (mobile) then built outward for larger screens using min-width media queries.
+
+## Version 2 Release Notes
+
+- All columns within a row will automatically scale in height to match the tallest column in the row.
+  - `eq-height` is thereby deprecated.
+- `.auto-height` class has been refactored to `.natural-height`.
+  - Likewise, the `row-auto-height()` mixin has been refactored to `row-natural-height()`.
+- The `flex-column()` mixin has been refactored to `row-flex-column()`.
+- `.hide` and `.show` classes can now be applied to `.row` elements.
+- The `show()` mixin now accepts an optional `$row` argument and can be used on `row` elements.
+  - Example: `@include show("xs", "row")` or `@include show("xs", "true")`.

@@ -20,7 +20,6 @@
   flex-direction: row-reverse;
 }
 
-// For use when row align-item flex-start has been overridden
 @mixin row-natural-height() {
   align-items: flex-start;
 }
