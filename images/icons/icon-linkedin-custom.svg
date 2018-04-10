@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-194.000000, -2653.000000)" fill="#9A9A9A">
+            <g id="Footer" transform="translate(0.000000, 2324.000000)">
+                <g id="contact-info" transform="translate(23.000000, 40.000000)">
+                    <g id="Social-media-Icons" transform="translate(69.000000, 289.000000)">
+                        <path d="M114,24 C120.627417,24 126,18.627417 126,12 C126,5.372583 120.627417,0 114,0 C107.372583,0 102,5.372583 102,12 C102,18.627417 107.372583,24 114,24 Z M110.7,17.45 L108.4,17.45 L108.4,10.05 L110.7,10.05 L110.7,17.45 Z M109.45,9.1 C108.6,9.1 108.05,8.55 108.05,7.8 C108.05,7.05 108.6,6.5 109.45,6.5 C110.3,6.5 110.85,7.05 110.85,7.8 C110.85,8.55 110.35,9.1 109.45,9.1 Z M119.95,17.45 L117.3,17.45 L117.3,13.6 C117.3,12.6 116.9,11.9 116,11.9 C115.3,11.9 114.95,12.35 114.75,12.8 C114.7,12.95 114.7,13.2 114.7,13.4 L114.7,17.4 L112.1,17.4 C112.1,17.4 112.15,10.6 112.1,10 L114.7,10 L114.7,11.15 C114.85,10.65 115.7,9.9 117,9.9 C118.65,9.9 119.95,10.95 119.95,13.25 L119.95,17.45 L119.95,17.45 Z" id="Combined-Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
