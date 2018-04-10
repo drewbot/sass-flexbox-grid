@@ -407,17 +407,17 @@ var overviewCollection = [{
   codeBlockId: 'offsetsExample',
   title: 'Offsets',
   description: 'Offset a column.',
-  hasLink: true,
-  href: '/views/classes.html',
-  linkContent: 'See all classes'
+  hasLink: false,
+  href: '',
+  linkContent: ''
 }, {
   sectionId: 'autoWidth',
   codeBlockId: 'autoWidthExample',
   title: 'Auto Width',
   description: 'Add any number of auto sizing columns to a row. Let the grid figure it out.',
-  hasLink: true,
-  href: '/views/classes.html',
-  linkContent: 'See all classes'
+  hasLink: false,
+  href: '',
+  linkContent: ''
 }, {
   sectionId: 'alignment',
   codeBlockId: 'alignmentExample',
@@ -431,41 +431,41 @@ var overviewCollection = [{
   codeBlockId: 'distributionExample',
   title: 'Distribution',
   description: 'Add classes to distribute the contents of a row or column.',
-  hasLink: true,
-  href: '/views/classes.html',
-  linkContent: 'See all classes'
+  hasLink: false,
+  href: '',
+  linkContent: ''
 }, {
   sectionId: 'reorder',
   codeBlockId: 'reorderExample',
   title: 'Reordering',
   description: 'Add classes to reorder columns.',
-  hasLink: true,
-  href: '/views/classes.html',
-  linkContent: 'See all classes'
+  hasLink: false,
+  href: '',
+  linkContent: ''
 }, {
   sectionId: 'reverse',
   codeBlockId: 'reverseExample',
   title: 'Reversing',
   description: 'Add a class to reverse columns or column content.',
-  hasLink: true,
-  href: '/views/classes.html',
-  linkContent: 'See all classes'
+  hasLink: false,
+  href: '',
+  linkContent: ''
 }, {
   sectionId: 'eqHeight',
   codeBlockId: 'eqHeightExample',
   title: 'Column Height Equalizer',
   description: 'By default, flexbox stretches each flex item to match the height of it\'s sibling. The .natural-height row utility class will make each column\'s height match it\'s content, giving the developer control of the behavior.',
-  hasLink: true,
-  href: '/views/classes.html',
-  linkContent: 'See all classes'
+  hasLink: false,
+  href: '',
+  linkContent: ''
 }, {
   sectionId: 'nested',
   codeBlockId: 'nestedExample',
   title: 'Nested Grids',
   description: 'Nest grids inside grids inside grids.',
-  hasLink: true,
-  href: '/views/classes.html',
-  linkContent: 'See all classes'
+  hasLink: false,
+  href: '',
+  linkContent: ''
 }, {
   sectionId: 'visibility',
   codeBlockId: 'visibilityExample',
