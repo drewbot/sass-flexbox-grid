@@ -1,37 +1,73 @@
-@mixin show($breakpoint) {
+@mixin show($breakpoint, $row) {
   @if $breakpoint == "xs" {
-    display: block;
+    @if $row == "true" or $row == "row" {
+      display: flex;
+    } @else {
+      display: block;
+    }
   } @else if $breakpoint == "xs-only" {
     @media #{$breakpoint-xs-only} {
-      display: block;
+      @if $row == "true" or $row == "row" {
+        display: flex;
+      } @else {
+        display: block;
+      }
     }
   } @else if $breakpoint == "sm" {
     @media #{$breakpoint-sm-up} {
-      display: block;
+      @if $row == "true" or $row == "row" {
+        display: flex;
+      } @else {
+        display: block;
+      }
     }
   } @else if $breakpoint == "sm-only" {
     @media #{$breakpoint-sm-only} {
-      display: block;
+      @if $row == "true" or $row == "row" {
+        display: flex;
+      } @else {
+        display: block;
+      }
     }
   } @else if $breakpoint == "md" {
     @media #{$breakpoint-md-up} {
-      display: block;
+      @if $row == "true" or $row == "row" {
+        display: flex;
+      } @else {
+        display: block;
+      }
     }
   } @else if $breakpoint == "md-only" {
     @media #{$breakpoint-md-only} {
-      display: block;
+      @if $row == "true" or $row == "row" {
+        display: flex;
+      } @else {
+        display: block;
+      }
     }
   } @else if $breakpoint == "lg" {
     @media #{$breakpoint-lg-up} {
-      display: block;
+      @if $row == "true" or $row == "row" {
+        display: flex;
+      } @else {
+        display: block;
+      }
     }
   } @else if $breakpoint == "lg-only" {
     @media #{$breakpoint-lg-only} {
-      display: block;
+      @if $row == "true" or $row == "row" {
+        display: flex;
+      } @else {
+        display: block;
+      }
     }
   } @else if $breakpoint == "xl" {
     @media #{$breakpoint-xl-up} {
-      display: block;
+      @if $row == "true" or $row == "row" {
+        display: flex;
+      } @else {
+        display: block;
+      }
     }
   } @else {
     @warn "show mixin arg must be one of the existing breakpoints or ranges (#{$breakpoint-all-prefixes})";
