@@ -1,6 +1,7 @@
 @import "../variables/main.scss";
 
 @mixin row($full-width: "false") {
+  box-sizing: border-box;
   margin: 0 auto;
   width: 100%;
   display: -webkit-flex;
@@ -38,6 +39,7 @@
     @if $col-number > $grid-columns or $col-number == 0 {
       @warn "Column number must be greater than 0 and less than or equal to total number of columns in the grid (#{$grid-columns})";
     } @else {
+      box-sizing: border-box;
       flex-basis: 100% / $grid-columns * $col-number;
       max-width: 100% / $grid-columns * $col-number;
       padding: $gutter;
@@ -45,6 +47,7 @@
   // If no col number is passed then arg is set to "auto" by default
   // "auto" mode fills the horizontal space with evenly sized containers
   } @else if $col-number == "auto" {
+    box-sizing: border-box;
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
