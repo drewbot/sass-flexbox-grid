@@ -46,7 +46,7 @@ Use Sass Flexbox Grid's mobile-first media queries and grid classes. All styles 
 - `.auto-height` class has been refactored to `.natural-height`.
   - Likewise, the `row-auto-height()` mixin has been refactored to `row-natural-height()`.
 - The `flex-column()` mixin has been refactored to `row-flex-column()`.
-- `.hide` and `.show` classes can now be applied to `.row` elements.
+- The `.show` class can now be applied to `.row` elements.
 - The `show()` mixin now accepts an optional `$row` argument and can be used on `row` elements.
   - Example: `@include show("xs", "row")` or `@include show("xs", "true")`.
 
