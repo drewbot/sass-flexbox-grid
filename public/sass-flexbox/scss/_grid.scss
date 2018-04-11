@@ -57,6 +57,7 @@
 // Mixin to run inside of for loop - creates col/breakpoint classes * Not for developer use *
 @mixin col-factory($thisPrefix) {
   .col-#{$thisPrefix} {
+    box-sizing: border-box;
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
@@ -64,6 +65,7 @@
   }
   @for $i from 1 through $grid-columns {
     .col-#{$thisPrefix}-#{$i} {
+      box-sizing: border-box;
       flex-basis: 100% / $grid-columns * $i;
       max-width: 100% / $grid-columns * $i;
       padding: $gutter;
