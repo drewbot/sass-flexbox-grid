@@ -39,6 +39,13 @@ Plain CSS and minified CSS versions can be used with no other dependencies.
 
 Use Sass Flexbox Grid's mobile-first media queries and grid classes. All styles should first be declared at small (mobile) then built outward for larger screens using min-width media queries.
 
+## Version 1.0.0 Release Notes
+
+- Added gutters to the top, bottom, left, and right of all columns by default.
+- Gutter size can be adjusted by changing the value of the sass variable `$gutter`.
+- The `.col-gutter-lr` class will only apply gutters to the left and right of a column.
+- The `.col-no-gutter` class will remove gutters from a column.
+
 ## Version 2.0.0 Release Notes
 
 - All columns within a row will automatically scale in height to match the tallest column in the row.
