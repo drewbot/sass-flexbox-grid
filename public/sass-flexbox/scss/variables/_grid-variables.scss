@@ -1,14 +1,14 @@
 // Grid
-$grid-columns: 12; // Set number of columns in the grid
+$grid-columns: 12 !default; // Set number of columns in the grid
 
-$xs-max: 40rem; // Set xs breakpoint's max width
-$sm-max: 64rem; // Set sm breakpoint's max width
-$md-max: 90rem; // Set md breakpoint's max width
-$lg-max: 120rem; // Set lg breakpoint's max width
+$xs-max: 40rem !default; // Set xs breakpoint's max width
+$sm-max: 64rem !default; // Set sm breakpoint's max width
+$md-max: 90rem !default; // Set md breakpoint's max width
+$lg-max: 120rem !default; // Set lg breakpoint's max width
 
-$gutter: 1rem; // Set gutter size
+$gutter: 1rem !default; // Set gutter size
 
-$content-well-max-width: "none"; // Set the max-width of the content well
+$content-well-max-width: "none" !default; // Set the max-width of the content well
 
 $sm-start: ($xs-max + 1); // Generate sm breakpoint's min width
 $md-start: ($sm-max + 1); // Generate md breakpoint's min width
