@@ -37,6 +37,10 @@ Or copy the Sass files over to your `src` directory from the following directory
 
 Use Sass Flexbox Grid's mobile-first media queries provided in the Sass version of the library. All styles should first be declared at small (mobile) then built outward for larger screens.
 
+## Version 2.0.3 Release Notes - 04/12/2018
+
+- Added `!default;` to adjustable grid vars in `.../scss/variables/_grid-variables.scss`.
+
 ## Version 2.0.2 Release Notes - 04/10/2018
 
 - Added `box-sizing: border-box;` to all rows and columns by default.
