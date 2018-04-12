@@ -1,6 +1,6 @@
 {
   "name": "@drewbot/sass-flexbox-grid",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "A responsive sass grid library built with flexbox",
   "license": "MIT",
   "author": "Drew Botka",
