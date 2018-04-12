@@ -33,14 +33,9 @@ Or copy the Sass files over to your `src` directory from the following directory
 
 [https://github.com/drewbot/sass-flexbox-grid/raw/master/public/sass-flexbox.zip](https://github.com/drewbot/sass-flexbox-grid/raw/master/public/sass-flexbox.zip)
 
-## Dependencies
-The Sass Version simply requires The Sass library to be installed.
-
-Plain CSS and minified CSS versions can be used with no other dependencies.
-
 ## Mobile First
 
-Use Sass Flexbox Grid's mobile-first media queries and grid classes. All styles should first be declared at small (mobile) then built outward for larger screens using min-width media queries.
+Use Sass Flexbox Grid's mobile-first media queries provided in the Sass version of the library. All styles should first be declared at small (mobile) then built outward for larger screens.
 
 ## Version 2.0.2 Release Notes - 04/10/2018
 
