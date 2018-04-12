@@ -4,6 +4,27 @@
   "description": "A responsive sass grid library built with flexbox",
   "license": "MIT",
   "author": "Drew Botka",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/drewbot/sass-flexbox-grid"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "css",
+    "flex",
+    "box",
+    "flexbox",
+    "grid",
+    "library",
+    "responsive",
+    "mobile first",
+    "visibility",
+    "hide",
+    "show",
+    "custom",
+    "customize"
+  ],
   "main": "app.js",
   "engines": {
     "node": ">=4"
