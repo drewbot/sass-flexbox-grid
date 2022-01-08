@@ -66,12 +66,12 @@
   @for $i from 1 through $grid-columns {
     .col-#{$thisPrefix}-#{$i} {
       box-sizing: border-box;
-      flex-basis: 100% / $grid-columns * $i;
-      max-width: 100% / $grid-columns * $i;
+      flex-basis: calc(100% / $grid-columns * $i);
+      max-width: calc(100% / $grid-columns * $i);
       padding: $gutter;
     }
     .col-#{$thisPrefix}-offset-#{$i} {
-      margin-left: 100% / $grid-columns * $i;
+      margin-left: calc(100% / $grid-columns * $i);
     }
   }
   .row.start-#{$thisPrefix} {
