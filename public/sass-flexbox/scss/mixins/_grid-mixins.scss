@@ -38,8 +38,8 @@
       @warn "Column number must be greater than 0 and less than or equal to total number of columns in the grid (#{$grid-columns})";
     } @else {
       box-sizing: border-box;
-      flex-basis: 100% / $grid-columns * $col-number;
-      max-width: 100% / $grid-columns * $col-number;
+      flex-basis: calc(100% / $grid-columns * $col-number);
+      max-width: calc(100% / $grid-columns * $col-number);
       padding: $gutter;
     }
   // If no col number is passed then arg is set to "auto" by default
@@ -92,7 +92,7 @@
   } @else if $offset-number > $grid-columns {
     @warn "Column offset number must be greater than 0 and less than or equal to total number of columns in the grid (#{$grid-columns})";
   } @else {
-    margin-left: 100% / $grid-columns * $offset-number;
+    margin-left: calc(100% / $grid-columns * $offset-number);
   }
 } // Condition to run inside of the col-offset mixin * not for developer use *
 
