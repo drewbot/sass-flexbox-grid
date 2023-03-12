@@ -30,7 +30,7 @@ const servePort = 9003;
 
 gulp.registry(FwdRef());
 
-gulp.task('styles', async () => {
+gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
@@ -52,14 +52,14 @@ function lint(files, options) {
     .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
 }
 
-gulp.task('lint', async () => {
+gulp.task('lint', () => {
   return lint('app/scripts/**/*.js', {
     fix: true
   })
     .pipe(gulp.dest('app/scripts'));
 });
 
-gulp.task('lint:test', async () => {
+gulp.task('lint:test', () => {
   return lint('test/spec/**/*.js', {
     fix: true,
     env: {
@@ -69,7 +69,7 @@ gulp.task('lint:test', async () => {
     .pipe(gulp.dest('test/spec/**/*.js'));
 });
 
-gulp.task('html', gulp.series('styles', 'bundleMin'), async () => {
+gulp.task('html', gulp.series('styles', 'bundleMin'), () => {
   return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
@@ -77,13 +77,13 @@ gulp.task('html', gulp.series('styles', 'bundleMin'), async () => {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('views', async () => {
+gulp.task('views', () => {
   return gulp.src('app/views/*.html')
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(gulp.dest('dist/views'));
 });
 
-gulp.task('images', async () => {
+gulp.task('images', () => {
   return gulp.src('app/images/**/*')
     .pipe($.cache($.imagemin({
       progressive: true,
@@ -95,19 +95,19 @@ gulp.task('images', async () => {
     .pipe(gulp.dest('dist/images'));
 });
 
-gulp.task('images-lite', async () => {
+gulp.task('images-lite', () => {
   return gulp.src('app/images/**/*')
       .pipe(gulp.dest('dist/images'));
 });
 
-gulp.task('fonts', async () => {
+gulp.task('fonts', () => {
   return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
     .concat('app/fonts/**/*'))
     .pipe(gulp.dest('.tmp/fonts'))
     .pipe(gulp.dest('dist/fonts'));
 });
 
-gulp.task('extras', async () => {
+gulp.task('extras', () => {
   return gulp.src([
     'app/*.*',
     '!app/*.html'
@@ -118,7 +118,7 @@ gulp.task('extras', async () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', gulp.series('styles', 'bundle', 'fonts'), async () => {
+gulp.task('serve', gulp.series('styles', 'bundle', 'fonts'), () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -144,7 +144,7 @@ gulp.task('serve', gulp.series('styles', 'bundle', 'fonts'), async () => {
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
-gulp.task('serve:dist', async () => {
+gulp.task('serve:dist', () => {
   browserSync({
     notify: false,
     port: servePort,
@@ -154,7 +154,7 @@ gulp.task('serve:dist', async () => {
   });
 });
 
-gulp.task('serve:test', gulp.series('bundle'), async () => {
+gulp.task('serve:test', gulp.series('bundle'), () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -174,7 +174,7 @@ gulp.task('serve:test', gulp.series('bundle'), async () => {
 });
 
 // inject bower components
-gulp.task('wiredep', async () => {
+gulp.task('wiredep', () => {
   gulp.src('app/styles/*.scss')
     .pipe(wiredep({
       ignorePath: /^(\.\.\/)+/
@@ -189,19 +189,19 @@ gulp.task('wiredep', async () => {
 });
 
 // // Removing lint from build task
-// gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], async () => {
+// gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
 //   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 // });
 
-gulp.task('build', gulp.series('html', 'images', 'fonts', 'extras', 'views', 'buildLibrary'), async () => {
+gulp.task('build', gulp.series('html', 'images', 'fonts', 'extras', 'views', 'buildLibrary'), () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('build-lite', gulp.series('html', 'images-lite', 'fonts', 'extras', 'views'), async () => {
+gulp.task('build-lite', gulp.series('html', 'images-lite', 'fonts', 'extras', 'views'), () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('default', gulp.series('clean'), async () => {
+gulp.task('default', gulp.series('clean'), () => {
   gulp.start('build');
 });
 
@@ -217,7 +217,7 @@ var config = {
 };
 
 // Watch task: Bundle, kick off live reload server, nd rebundle/reload on file changes
-gulp.task('watch', async () => {
+gulp.task('watch', () => {
   livereload.listen();
   var args = merge(watchify.args, { debug : true});
   var bundler = browserify(config.js.src, args)
@@ -249,7 +249,7 @@ gulp.task('watch', async () => {
   });
 });
 
-gulp.task('bundle', async () => {
+gulp.task('bundle', () => {
   var bundler = browserify(config.js.src)  // Pass browserify the entry point
                   .transform(babelify, { presets : [ 'es2015' ] });  // Then, babelify, with ES2015 preset
 
@@ -265,7 +265,7 @@ gulp.task('bundle', async () => {
     // .pipe(livereload());                         // Reload browser if relevant
 })
 
-gulp.task('bundleReload', async () => {
+gulp.task('bundleReload', () => {
   var args = merge(watchify.args, { debug : true});
   var bundler = browserify(config.js.src, args)
                  .plugin(watchify, { ignoreWatch: ['**/node_modules'] })
@@ -283,7 +283,7 @@ gulp.task('bundleReload', async () => {
     .pipe(reload({stream: true}));
 });
 
-gulp.task('bundleServe', async () => {
+gulp.task('bundleServe', () => {
   var args = merge(watchify.args, { debug : true});
   var bundler = browserify(config.js.src, args)
                  .plugin(watchify, { ignoreWatch: ['**/node_modules'] })
@@ -301,7 +301,7 @@ gulp.task('bundleServe', async () => {
     .pipe(reload({stream: true}));
 });
 
-gulp.task('bundleMin', async () => {
+gulp.task('bundleMin', (cb) => {
   var bundler = browserify(config.js.src)
                   .transform(babelify, { presets : [ 'es2015' ], comments : true, compact: false });
   bundler
@@ -311,12 +311,14 @@ gulp.task('bundleMin', async () => {
     // .pipe(ngAnnotate())                          // ng-annotate to enable uglification of services injected
     // .pipe(uglify())
     .pipe(rename(config.js.outputFile))          // Rename output from 'main.js' to 'bundle.js'
-    .pipe(gulp.dest(config.js.buildOutputDir))        // Save 'bundle' to build/
+    .pipe(gulp.dest(config.js.buildOutputDir));        // Save 'bundle' to build/
+
+  cb();
 })
 /////// End browserify bundling
 
 /////////// Start manual build browserify task
-gulp.task('buildbundle', async () => {
+gulp.task('buildbundle', () => {
   var exec = require('child_process').exec;
   // var cmd = 'browserify app/scripts/main.js > app/scripts/bundle.js';
   // var cmd = 'browserify app/scripts/main.js --debug | exorcist app/scripts/bundle.map.js > app/scripts/bundle.js';
@@ -337,14 +339,14 @@ gulp.task('buildbundle', async () => {
 gulp.task('cleanLibrary', del.bind(null, ['public/sass-flexbox/**/*']));
 
 // Copy sass library to public folder
-gulp.task('copyLibrary', async () => {
+gulp.task('copyLibrary', () => {
   return gulp.src('app/styles/library/**/*.scss')
     .pipe($.plumber())
     .pipe(gulp.dest('public/sass-flexbox/scss'))
 });
 
 /// process scss and compile library for public use
-gulp.task('compileLibrary', async () => {
+gulp.task('compileLibrary', () => {
   return gulp.src('app/styles/library/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
@@ -358,7 +360,7 @@ gulp.task('compileLibrary', async () => {
 });
 
 // Minify library for public use
-gulp.task('minifyLibrary', async () => {
+gulp.task('minifyLibrary', () => {
   return gulp.src('public/sass-flexbox/main.css')
     .pipe($.plumber())
     .pipe(rename('main.min.css'))
@@ -367,13 +369,13 @@ gulp.task('minifyLibrary', async () => {
 });
 
 // zip library
-gulp.task('zipLibrary', async () => {
+gulp.task('zipLibrary', () => {
   return gulp.src('public/sass-flexbox/**/*')
   .pipe(zip('sass-flexbox.zip'))
   .pipe(gulp.dest('public'))
 });
 
 // Copy, compile, minify, zip
-gulp.task('buildLibrary', gulp.series('cleanLibrary'), async () => {
+gulp.task('buildLibrary', gulp.series('cleanLibrary'), () => {
   runSequence('copyLibrary', 'compileLibrary', 'minifyLibrary', 'zipLibrary');
 });
