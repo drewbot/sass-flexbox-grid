@@ -67,6 +67,8 @@
     "main-bower-files": "^2.5.0",
     "merge": "^1.2.0",
     "run-sequence": "^1.2.2",
+    "sass": "^1.59.2",
+    "undertaker-forward-reference": "^2.0.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0",

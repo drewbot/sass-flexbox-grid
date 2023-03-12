@@ -23,18 +23,22 @@ const watchify   = require('watchify');
 const uglify     = require('gulp-uglify');
 const zip        = require('gulp-zip');
 const runSequence = require('run-sequence');
+const sass = require('gulp-sass')(require('sass'));
+const FwdRef = require('undertaker-forward-reference');
 
 const servePort = 9003;
 
-gulp.task('styles', () => {
+gulp.registry(FwdRef());
+
+gulp.task('styles', async () => {
   return gulp.src('app/styles/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
-    .pipe($.sass.sync({
+    .pipe(sass.sync({
       outputStyle: 'expanded',
       precision: 10,
       includePaths: ['.']
-    }).on('error', $.sass.logError))
+    }).on('error', sass.logError))
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/styles'))
@@ -49,14 +53,14 @@ function lint(files, options) {
     .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
 }
 
-gulp.task('lint', () => {
+gulp.task('lint', async () => {
   return lint('app/scripts/**/*.js', {
     fix: true
   })
     .pipe(gulp.dest('app/scripts'));
 });
 
-gulp.task('lint:test', () => {
+gulp.task('lint:test', async () => {
   return lint('test/spec/**/*.js', {
     fix: true,
     env: {
@@ -66,7 +70,7 @@ gulp.task('lint:test', () => {
     .pipe(gulp.dest('test/spec/**/*.js'));
 });
 
-gulp.task('html', ['styles', 'bundleMin'], () => {
+gulp.task('html', gulp.series('styles', 'bundleMin'), async () => {
   return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
@@ -74,13 +78,13 @@ gulp.task('html', ['styles', 'bundleMin'], () => {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('views', () => {
+gulp.task('views', async () => {
   return gulp.src('app/views/*.html')
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
     .pipe(gulp.dest('dist/views'));
 });
 
-gulp.task('images', () => {
+gulp.task('images', async () => {
   return gulp.src('app/images/**/*')
     .pipe($.cache($.imagemin({
       progressive: true,
@@ -92,19 +96,19 @@ gulp.task('images', () => {
     .pipe(gulp.dest('dist/images'));
 });
 
-gulp.task('images-lite', () => {
+gulp.task('images-lite', async () => {
   return gulp.src('app/images/**/*')
       .pipe(gulp.dest('dist/images'));
 });
 
-gulp.task('fonts', () => {
+gulp.task('fonts', async () => {
   return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
     .concat('app/fonts/**/*'))
     .pipe(gulp.dest('.tmp/fonts'))
     .pipe(gulp.dest('dist/fonts'));
 });
 
-gulp.task('extras', () => {
+gulp.task('extras', async () => {
   return gulp.src([
     'app/*.*',
     '!app/*.html'
@@ -115,7 +119,7 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['styles', 'bundle', 'fonts'], () => {
+gulp.task('serve', gulp.series('styles', 'bundle', 'fonts'), async () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -141,7 +145,7 @@ gulp.task('serve', ['styles', 'bundle', 'fonts'], () => {
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
-gulp.task('serve:dist', () => {
+gulp.task('serve:dist', async () => {
   browserSync({
     notify: false,
     port: servePort,
@@ -151,7 +155,7 @@ gulp.task('serve:dist', () => {
   });
 });
 
-gulp.task('serve:test', ['bundle'], () => {
+gulp.task('serve:test', gulp.series('bundle'), async () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -171,7 +175,7 @@ gulp.task('serve:test', ['bundle'], () => {
 });
 
 // inject bower components
-gulp.task('wiredep', () => {
+gulp.task('wiredep', async () => {
   gulp.src('app/styles/*.scss')
     .pipe(wiredep({
       ignorePath: /^(\.\.\/)+/
@@ -186,19 +190,19 @@ gulp.task('wiredep', () => {
 });
 
 // // Removing lint from build task
-// gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+// gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], async () => {
 //   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 // });
 
-gulp.task('build', ['html', 'images', 'fonts', 'extras', 'views', 'buildLibrary'], () => {
+gulp.task('build', gulp.series('html', 'images', 'fonts', 'extras', 'views', 'buildLibrary'), async () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('build-lite', ['html', 'images-lite', 'fonts', 'extras', 'views'], () => {
+gulp.task('build-lite', gulp.series('html', 'images-lite', 'fonts', 'extras', 'views'), async () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('default', ['clean'], () => {
+gulp.task('default', gulp.series('clean'), async () => {
   gulp.start('build');
 });
 
@@ -214,7 +218,7 @@ var config = {
 };
 
 // Watch task: Bundle, kick off live reload server, nd rebundle/reload on file changes
-gulp.task('watch', function () {
+gulp.task('watch', async () => {
   livereload.listen();
   var args = merge(watchify.args, { debug : true});
   var bundler = browserify(config.js.src, args)
@@ -246,7 +250,7 @@ gulp.task('watch', function () {
   });
 });
 
-gulp.task('bundle', function () {
+gulp.task('bundle', async () => {
   var bundler = browserify(config.js.src)  // Pass browserify the entry point
                   .transform(babelify, { presets : [ 'es2015' ] });  // Then, babelify, with ES2015 preset
 
@@ -262,7 +266,7 @@ gulp.task('bundle', function () {
     // .pipe(livereload());                         // Reload browser if relevant
 })
 
-gulp.task('bundleReload', function () {
+gulp.task('bundleReload', async () => {
   var args = merge(watchify.args, { debug : true});
   var bundler = browserify(config.js.src, args)
                  .plugin(watchify, { ignoreWatch: ['**/node_modules'] })
@@ -280,7 +284,7 @@ gulp.task('bundleReload', function () {
     .pipe(reload({stream: true}));
 });
 
-gulp.task('bundleServe', function () {
+gulp.task('bundleServe', async () => {
   var args = merge(watchify.args, { debug : true});
   var bundler = browserify(config.js.src, args)
                  .plugin(watchify, { ignoreWatch: ['**/node_modules'] })
@@ -298,7 +302,7 @@ gulp.task('bundleServe', function () {
     .pipe(reload({stream: true}));
 });
 
-gulp.task('bundleMin', function () {
+gulp.task('bundleMin', async () => {
   var bundler = browserify(config.js.src)
                   .transform(babelify, { presets : [ 'es2015' ], comments : true, compact: false });
   bundler
@@ -313,7 +317,7 @@ gulp.task('bundleMin', function () {
 /////// End browserify bundling
 
 /////////// Start manual build browserify task
-gulp.task('buildbundle', function(){
+gulp.task('buildbundle', async () => {
   var exec = require('child_process').exec;
   // var cmd = 'browserify app/scripts/main.js > app/scripts/bundle.js';
   // var cmd = 'browserify app/scripts/main.js --debug | exorcist app/scripts/bundle.map.js > app/scripts/bundle.js';
@@ -334,29 +338,29 @@ gulp.task('buildbundle', function(){
 gulp.task('cleanLibrary', del.bind(null, ['public/sass-flexbox/**/*']));
 
 // Copy sass library to public folder
-gulp.task('copyLibrary', () => {
+gulp.task('copyLibrary', async () => {
   return gulp.src('app/styles/library/**/*.scss')
     .pipe($.plumber())
     .pipe(gulp.dest('public/sass-flexbox/scss'))
 });
 
 /// process scss and compile library for public use
-gulp.task('compileLibrary', () => {
+gulp.task('compileLibrary', async () => {
   return gulp.src('app/styles/library/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
-    .pipe($.sass.sync({
+    .pipe(sass.sync({
       outputStyle: 'expanded',
       precision: 10,
       includePaths: ['.']
-    }).on('error', $.sass.logError))
+    }).on('error', sass.logError))
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('public/sass-flexbox'))
 });
 
 // Minify library for public use
-gulp.task('minifyLibrary', () => {
+gulp.task('minifyLibrary', async () => {
   return gulp.src('public/sass-flexbox/main.css')
     .pipe($.plumber())
     .pipe(rename('main.min.css'))
@@ -365,13 +369,13 @@ gulp.task('minifyLibrary', () => {
 });
 
 // zip library
-gulp.task('zipLibrary', () => {
+gulp.task('zipLibrary', async () => {
   return gulp.src('public/sass-flexbox/**/*')
   .pipe(zip('sass-flexbox.zip'))
   .pipe(gulp.dest('public'))
 });
 
 // Copy, compile, minify, zip
-gulp.task('buildLibrary', ['cleanLibrary'], function() {
+gulp.task('buildLibrary', gulp.series('cleanLibrary'), async () => {
   runSequence('copyLibrary', 'compileLibrary', 'minifyLibrary', 'zipLibrary');
 });
