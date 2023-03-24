@@ -23,19 +23,22 @@ const watchify   = require('watchify');
 const uglify     = require('gulp-uglify');
 const zip        = require('gulp-zip');
 const runSequence = require('run-sequence');
+const sass = require('gulp-sass')(require('sass'));
+const FwdRef = require('undertaker-forward-reference');
 
 const servePort = 9003;
+
+gulp.registry(FwdRef());
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
-    .pipe($.sass.sync({
+    .pipe(sass.sync({
       outputStyle: 'expanded',
       precision: 10,
       includePaths: ['.']
-    }).on('error', $.sass.logError))
-    .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
+    }).on('error', sass.logError))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/styles'))
     .pipe(reload({stream: true}));
@@ -66,7 +69,7 @@ gulp.task('lint:test', () => {
     .pipe(gulp.dest('test/spec/**/*.js'));
 });
 
-gulp.task('html', ['styles', 'bundleMin'], () => {
+gulp.task('html', gulp.series('styles', 'bundleMin'), () => {
   return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
@@ -115,7 +118,7 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['styles', 'bundle', 'fonts'], () => {
+gulp.task('serve', gulp.series('styles', 'bundle', 'fonts'), () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -151,7 +154,7 @@ gulp.task('serve:dist', () => {
   });
 });
 
-gulp.task('serve:test', ['bundle'], () => {
+gulp.task('serve:test', gulp.series('bundle'), () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -190,15 +193,15 @@ gulp.task('wiredep', () => {
 //   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 // });
 
-gulp.task('build', ['html', 'images', 'fonts', 'extras', 'views', 'buildLibrary'], () => {
+gulp.task('build', gulp.series('html', 'images', 'fonts', 'extras', 'views', 'buildLibrary'), () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('build-lite', ['html', 'images-lite', 'fonts', 'extras', 'views'], () => {
+gulp.task('build-lite', gulp.series('html', 'images-lite', 'fonts', 'extras', 'views'), () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('default', ['clean'], () => {
+gulp.task('default', gulp.series('clean'), () => {
   gulp.start('build');
 });
 
@@ -214,7 +217,7 @@ var config = {
 };
 
 // Watch task: Bundle, kick off live reload server, nd rebundle/reload on file changes
-gulp.task('watch', function () {
+gulp.task('watch', () => {
   livereload.listen();
   var args = merge(watchify.args, { debug : true});
   var bundler = browserify(config.js.src, args)
@@ -246,7 +249,7 @@ gulp.task('watch', function () {
   });
 });
 
-gulp.task('bundle', function () {
+gulp.task('bundle', () => {
   var bundler = browserify(config.js.src)  // Pass browserify the entry point
                   .transform(babelify, { presets : [ 'es2015' ] });  // Then, babelify, with ES2015 preset
 
@@ -262,7 +265,7 @@ gulp.task('bundle', function () {
     // .pipe(livereload());                         // Reload browser if relevant
 })
 
-gulp.task('bundleReload', function () {
+gulp.task('bundleReload', () => {
   var args = merge(watchify.args, { debug : true});
   var bundler = browserify(config.js.src, args)
                  .plugin(watchify, { ignoreWatch: ['**/node_modules'] })
@@ -280,7 +283,7 @@ gulp.task('bundleReload', function () {
     .pipe(reload({stream: true}));
 });
 
-gulp.task('bundleServe', function () {
+gulp.task('bundleServe', () => {
   var args = merge(watchify.args, { debug : true});
   var bundler = browserify(config.js.src, args)
                  .plugin(watchify, { ignoreWatch: ['**/node_modules'] })
@@ -298,7 +301,7 @@ gulp.task('bundleServe', function () {
     .pipe(reload({stream: true}));
 });
 
-gulp.task('bundleMin', function () {
+gulp.task('bundleMin', (cb) => {
   var bundler = browserify(config.js.src)
                   .transform(babelify, { presets : [ 'es2015' ], comments : true, compact: false });
   bundler
@@ -308,12 +311,14 @@ gulp.task('bundleMin', function () {
     // .pipe(ngAnnotate())                          // ng-annotate to enable uglification of services injected
     // .pipe(uglify())
     .pipe(rename(config.js.outputFile))          // Rename output from 'main.js' to 'bundle.js'
-    .pipe(gulp.dest(config.js.buildOutputDir))        // Save 'bundle' to build/
+    .pipe(gulp.dest(config.js.buildOutputDir));        // Save 'bundle' to build/
+
+  cb();
 })
 /////// End browserify bundling
 
 /////////// Start manual build browserify task
-gulp.task('buildbundle', function(){
+gulp.task('buildbundle', () => {
   var exec = require('child_process').exec;
   // var cmd = 'browserify app/scripts/main.js > app/scripts/bundle.js';
   // var cmd = 'browserify app/scripts/main.js --debug | exorcist app/scripts/bundle.map.js > app/scripts/bundle.js';
@@ -345,12 +350,11 @@ gulp.task('compileLibrary', () => {
   return gulp.src('app/styles/library/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
-    .pipe($.sass.sync({
+    .pipe(sass.sync({
       outputStyle: 'expanded',
       precision: 10,
       includePaths: ['.']
-    }).on('error', $.sass.logError))
-    .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
+    }).on('error', sass.logError))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('public/sass-flexbox'))
 });
@@ -372,6 +376,6 @@ gulp.task('zipLibrary', () => {
 });
 
 // Copy, compile, minify, zip
-gulp.task('buildLibrary', ['cleanLibrary'], function() {
+gulp.task('buildLibrary', gulp.series('cleanLibrary'), () => {
   runSequence('copyLibrary', 'compileLibrary', 'minifyLibrary', 'zipLibrary');
 });
